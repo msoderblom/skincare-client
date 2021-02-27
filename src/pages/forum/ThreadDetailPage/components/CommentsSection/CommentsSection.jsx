@@ -20,7 +20,7 @@ import createCommentSchema from "../../../../../validation/createCommentSchema";
 
 let socket;
 const CommentsSection = ({ threadID }) => {
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = process.env.REACT_APP_SOCKET_ENDPOINT;
   const dispatch = useDispatch();
   const history = useHistory();
 
