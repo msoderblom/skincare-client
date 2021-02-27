@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -33,6 +34,7 @@ const ThreadDetailPage = () => {
   return (
     <S.Container>
       <p>ThreadDetailPage</p>
+      {loading && <CircularProgress />}
       {id && <p>{id}</p>}
       {thread && (
         <div>
@@ -41,6 +43,8 @@ const ThreadDetailPage = () => {
           <p>{thread.body}</p>
         </div>
       )}
+
+      {getOneThreadError && <span>{getOneThreadError}</span>}
 
       <CommentsSection threadID={id} />
     </S.Container>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postActions, postTypes } from "../../../redux/blog/posts";
 import { useParams } from "react-router-dom";
 import * as S from "./styled";
+import { CircularProgress } from "@material-ui/core";
 
 const PostDetailPage = () => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const PostDetailPage = () => {
   return (
     <S.Container>
       <p>PostDetailPage</p>
+      {loading && <CircularProgress />}
       {id && <p>{id}</p>}
       {post && (
         <div>
