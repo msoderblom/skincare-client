@@ -12,16 +12,21 @@ const App = () => {
   return (
     <div>
       <Header />
-      React App
-      <Switch>
-        <Route exact path="/auth" component={AuthPage} />
-        <Route exact path="/skinfluencers" component={SkinfluencersPage} />
-        <Route exact path="/blog" component={BlogFeedPage} />
-        <Route exact path="/blog/post/:id" component={PostDetailPage} />
-        <Route exact path="/forum" component={ForumFeedPage} />
-        <Route exact path="/forum/thread/:id" component={ThreadDetailPage} />
-        <Route exact path="/forum/create-thread" component={CreateThreadPage} />
-      </Switch>
+      <main style={{ paddingTop: 60 }}>
+        <Switch>
+          <Route exact path="/auth" component={AuthPage} />
+          <Route exact path="/skinfluencers" component={SkinfluencersPage} />
+          <Route exact path="/blog" component={BlogFeedPage} />
+          <Route exact path="/blog/post/:id" component={PostDetailPage} />
+          <Route exact path="/forum" component={ForumFeedPage} />
+          <Route exact path="/forum/thread/:id" component={ThreadDetailPage} />
+          <Route
+            exact
+            path="/forum/create-thread"
+            component={CreateThreadPage}
+          />
+        </Switch>
+      </main>
     </div>
   );
 };

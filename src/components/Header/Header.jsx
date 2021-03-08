@@ -4,8 +4,21 @@ import * as S from "./styled";
 import decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { userTypes } from "../../redux/user";
+import NavBar from "../NavBar/NavBar";
+import { AppBar, makeStyles, Toolbar } from "@material-ui/core";
+import Button from "../Button/Button";
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  colorPrimary: {
+    backgroundColor: "#B681FC",
+  },
+}));
 
 const Header = () => {
+  const classes = useStyles();
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -38,13 +51,13 @@ const Header = () => {
 
   return (
     <S.Container>
-      <p>Header</p>
-      {user && <p>User: {user.username}</p>}
-
-      {user && <button onClick={signOut}>Sign Out</button>}
-      {!user && (
-        <button onClick={() => history.push("/auth")}>Sign In / Sign Up</button>
-      )}
+      <p>Skincare</p>
+      <NavBar />
+      <div>
+        {user && <p>User: {user.username}</p>}
+        {user && <button onClick={signOut}>Sign Out</button>}
+        {!user && <Button link="/auth" title="Sign In / Sign Up" />}
+      </div>
     </S.Container>
   );
 };
