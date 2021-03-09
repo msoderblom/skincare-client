@@ -5,6 +5,7 @@ import { threadActions } from "../../../redux/forum/threads";
 import Pagination from "@material-ui/lab/Pagination";
 import * as S from "./styled";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import ThreadPreview from "../components/ThreadPreview/ThreadPreview";
 
 const ForumFeedPage = (props) => {
   const dispatch = useDispatch();
@@ -30,8 +31,6 @@ const ForumFeedPage = (props) => {
 
   return (
     <S.Container>
-      <p>ForumFeedPage</p>
-
       {totalPages > 1 && (
         <Pagination
           count={totalPages}
@@ -41,17 +40,15 @@ const ForumFeedPage = (props) => {
       )}
       {loading && <CircularProgress />}
       {threads.length > 0 && !loading && (
-        <div>
-          {threads.map((thread) => (
-            <div key={thread._id}>
-              <Link to={`/forum/thread/${thread._id}`}>
-                <h3>{thread.title}</h3>
-              </Link>
-              <span>Posted by: {thread.author?.username}</span>
-              <p>{thread.body}</p>
-            </div>
-          ))}
-        </div>
+        <S.ThreadsContainer>
+          <S.ThreadList>
+            {threads.map((thread) => (
+              <li key={thread._id}>
+                <ThreadPreview thread={thread} />
+              </li>
+            ))}
+          </S.ThreadList>
+        </S.ThreadsContainer>
       )}
 
       {getThreadsError && <span>{getThreadsError}</span>}

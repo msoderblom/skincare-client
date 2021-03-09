@@ -8,10 +8,13 @@ export const Container = styled.header`
   align-items: center;
   z-index: 1;
   position: fixed;
-  background-color: #b681fc;
+  background-color: white;
   width: 100%;
-  height: 60px;
+  height: 80px;
   padding-inline: 10px;
-  -webkit-box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49);
-  box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49);
+  /* -webkit-box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49);
+  box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49); */
+
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
 `;

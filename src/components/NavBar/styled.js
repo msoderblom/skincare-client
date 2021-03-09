@@ -11,12 +11,12 @@ export const Nav = styled.nav`
   align-items: center;
 `;
 export const NavLink = styled(Link).attrs({ activeClassName })`
-  color: white;
+  color: #b572f4;
   text-decoration: none;
   text-transform: uppercase;
 
   &.${activeClassName} {
     font-weight: bold;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
 `;

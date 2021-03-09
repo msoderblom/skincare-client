@@ -5,6 +5,7 @@ import { postActions } from "../../../redux/blog/posts";
 import Pagination from "@material-ui/lab/Pagination";
 import * as S from "./styled";
 import { CircularProgress } from "@material-ui/core";
+import PostPreview from "../components/PostPreview/PostPreview";
 
 const BlogFeedPage = () => {
   const dispatch = useDispatch();
@@ -41,13 +42,7 @@ const BlogFeedPage = () => {
       {posts.length > 0 && !loading && (
         <div>
           {posts.map((post) => (
-            <div key={post._id}>
-              <Link to={`/blog/post/${post._id}`}>
-                <h3>{post.title}</h3>
-              </Link>
-              <span>Posted by: {post?.author}</span>
-              <div dangerouslySetInnerHTML={{ __html: post.body }} />
-            </div>
+            <PostPreview key={post._id} post={post} />
           ))}
         </div>
       )}
