@@ -2,7 +2,8 @@ import { Paper } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
-import { HiOutlineThumbUp } from "react-icons/hi";
+import { HiOutlineThumbUp, HiOutlineHeart, HiHeart } from "react-icons/hi";
+import { FaComment } from "react-icons/fa";
 
 const ThreadPreview = ({ thread }) => {
   return (
@@ -19,10 +20,15 @@ const ThreadPreview = ({ thread }) => {
           <S.Avatar />
           <S.Username>{thread.author?.username}</S.Username>
         </S.AuthorDetails>
-        <div>
-          <HiOutlineThumbUp />
+
+        <S.Likes>
+          <HiHeart size="1.2em" />
           <span>{thread.likes.length}</span>
-        </div>
+        </S.Likes>
+        <S.Comments>
+          <FaComment size="1em" />
+          <span>{thread.commentsCount}</span>
+        </S.Comments>
       </S.Footer>
     </S.Container>
   );
