@@ -1,27 +1,16 @@
 import React, { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as S from "./styled";
 import decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { userTypes } from "../../redux/user";
 import NavBar from "../NavBar/NavBar";
-import { AppBar, makeStyles, Toolbar } from "@material-ui/core";
 import Button from "../Button/Button";
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  colorPrimary: {
-    backgroundColor: "#B681FC",
-  },
-}));
-
 const Header = () => {
-  const classes = useStyles();
   const location = useLocation();
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const { user } = useSelector((state) => state.user);
   useEffect(() => {

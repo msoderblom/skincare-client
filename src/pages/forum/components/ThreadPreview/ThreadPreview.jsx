@@ -1,8 +1,9 @@
-import { Paper } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
-import { HiOutlineThumbUp, HiOutlineHeart, HiHeart } from "react-icons/hi";
+import {
+  /*  HiOutlineThumbUp, HiOutlineHeart, */ HiHeart,
+} from "react-icons/hi";
 import { FaComment } from "react-icons/fa";
 
 const ThreadPreview = ({ thread }) => {

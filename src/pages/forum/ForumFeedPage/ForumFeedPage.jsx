@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { threadActions } from "../../../redux/forum/threads";
 import Pagination from "@material-ui/lab/Pagination";
 import * as S from "./styled";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import ThreadPreview from "../components/ThreadPreview/ThreadPreview";
 
 const ForumFeedPage = (props) => {
