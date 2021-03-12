@@ -1,4 +1,8 @@
+import { useRef } from "react";
 import { Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./global";
+import { theme } from "./theme";
 import AuthPage from "./pages/AuthPage";
 import SkinfluencersPage from "./pages/SkinfluencersPage";
 import CreateThreadPage from "./pages/forum/CreateThreadPage";
@@ -7,27 +11,48 @@ import ThreadDetailPage from "./pages/forum/ThreadDetailPage";
 import PostDetailPage from "./pages/blog/PostDetailPage";
 import Header from "./components/Header";
 import BlogFeedPage from "./pages/blog/BlogFeedPage";
+import BurgerMenu from "./components/BurgerMenu";
+import { useOnClickOutside } from "./hooks";
+import { useDispatch } from "react-redux";
+import { appActions } from "./redux/app";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const node = useRef();
+  useOnClickOutside(
+    node,
+    () => dispatch(appActions.setMenuIsOpen(false)),
+    "burgerBtn"
+  );
   return (
-    <div>
-      <Header />
-      <main style={{ paddingTop: 60 }}>
-        <Switch>
-          <Route exact path="/auth" component={AuthPage} />
-          <Route exact path="/skinfluencers" component={SkinfluencersPage} />
-          <Route exact path="/blog" component={BlogFeedPage} />
-          <Route exact path="/blog/post/:id" component={PostDetailPage} />
-          <Route exact path="/forum" component={ForumFeedPage} />
-          <Route exact path="/forum/thread/:id" component={ThreadDetailPage} />
-          <Route
-            exact
-            path="/forum/create-thread"
-            component={CreateThreadPage}
-          />
-        </Switch>
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <div id="outer-container">
+        <Header />
+        <div ref={node}>
+          <BurgerMenu />
+        </div>
+        <main id="page-wrap" style={{ paddingTop: 60 }}>
+          <Switch>
+            <Route exact path="/auth" component={AuthPage} />
+            <Route exact path="/skinfluencers" component={SkinfluencersPage} />
+            <Route exact path="/blog" component={BlogFeedPage} />
+            <Route exact path="/blog/post/:id" component={PostDetailPage} />
+            <Route exact path="/forum" component={ForumFeedPage} />
+            <Route
+              exact
+              path="/forum/thread/:id"
+              component={ThreadDetailPage}
+            />
+            <Route
+              exact
+              path="/forum/create-thread"
+              component={CreateThreadPage}
+            />
+          </Switch>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 };
 
