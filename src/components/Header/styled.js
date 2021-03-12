@@ -6,7 +6,7 @@ export const Container = styled.header`
   grid-template-rows: auto;
   gap: 6px;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   background-color: white;
   width: 100%;
