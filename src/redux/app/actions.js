@@ -1,5 +1,4 @@
 import * as actionTypes from "./types";
-import * as api from "../../api";
 
 export const setMenuIsOpen = (isOpen) => ({
   type: actionTypes.SET_MENU_IS_OPEN,

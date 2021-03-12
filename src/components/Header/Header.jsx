@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import * as S from "./styled";
 import decode from "jwt-decode";
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userTypes } from "../../redux/user";
 import NavBar from "../NavBar/NavBar";
 import Button from "../Button/Button";
-import { appActions, appTypes } from "../../redux/app";
+import { appActions } from "../../redux/app";
 import BurgerBtn from "../BurgerBtn/BurgerBtn";
 
 const Header = () => {

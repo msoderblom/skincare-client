@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import * as S from "./styled";
 
 const BurgerBtn = ({ open, ...props }) => {
