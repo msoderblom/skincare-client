@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import { slide as slideMenu } from "react-burger-menu";
+
+const activeClassName = "nav-item-active";
 
 export const Menu = styled.div`
   background-color: #e5bbcc;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,18 +13,15 @@ export const Menu = styled.div`
   height: 100vh;
   text-align: left;
   padding: 2rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   transition: transform 0.3s ease-in-out;
   transform: ${({ isOpen }) =>
     isOpen ? "translateX(0)" : "translateX(-100%)"};
 
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
-  }
-
-  a {
+  /*   a {
     font-size: 2rem;
     text-transform: uppercase;
     padding: 2rem 0;
@@ -39,5 +39,26 @@ export const Menu = styled.div`
     &:hover {
       color: ${({ theme }) => theme.primaryHover};
     }
+  } */
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NavLink = styled(Link).attrs({ activeClassName })`
+  color: ${({ theme }) => theme.lavender};
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  &.${activeClassName} {
+    /* font-weight: bold; */
+    color: ${({ theme }) => theme.primaryDark};
+
+    text-decoration: underline;
   }
 `;

@@ -9,6 +9,9 @@ export const Nav = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
 `;
 export const NavLink = styled(Link).attrs({ activeClassName })`
   color: #b572f4;

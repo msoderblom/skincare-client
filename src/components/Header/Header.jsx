@@ -48,9 +48,9 @@ const Header = () => {
   return (
     <S.Container>
       <BurgerBtn open={isOpen} onClick={handleMenuClick} id="burgerBtn" />
-
+      <h1>SiteName</h1>
       <NavBar />
-      <div>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
         {user && <p>User: {user.username}</p>}
         {user && <button onClick={signOut}>Sign Out</button>}
         {!user && <Button link="/auth" title="Sign In / Sign Up" />}

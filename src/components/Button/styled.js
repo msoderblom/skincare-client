@@ -13,8 +13,12 @@ export const Button = styled.button`
   color: white;
   border: none;
   padding: 10px 15px;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+    font-size: 20px;
+  }
 `;
 
 /* export const Button = MStyled(MaterialButton)({
