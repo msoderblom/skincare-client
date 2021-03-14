@@ -2,9 +2,9 @@ import React from "react";
 
 import * as S from "./styled";
 
-const NavBar = () => {
+const NavBar = ({ ...props }) => {
   return (
-    <S.Nav>
+    <S.Nav {...props}>
       <S.NavLink to="/" exact>
         Home
       </S.NavLink>
