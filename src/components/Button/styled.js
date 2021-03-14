@@ -19,6 +19,12 @@ export const Button = styled.button`
   @media (min-width: ${({ theme }) => theme.mobile}) {
     font-size: 20px;
   }
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 /* export const Button = MStyled(MaterialButton)({
