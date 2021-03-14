@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Moment from "react-moment";
 
 export const Container = styled.div`
   padding: 25px 45px;
@@ -52,6 +53,17 @@ export const Username = styled.span`
   font-weight: 500;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  line-height: 24px;
+`;
+
+export const Created = styled(Moment)`
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 8px;
+  line-height: 23px;
 `;
 
 export const Likes = styled.div`

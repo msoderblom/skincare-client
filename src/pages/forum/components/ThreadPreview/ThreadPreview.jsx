@@ -5,6 +5,7 @@ import {
   /*  HiOutlineThumbUp, HiOutlineHeart, */ HiHeart,
 } from "react-icons/hi";
 import { FaComment } from "react-icons/fa";
+import "moment-timezone";
 
 const ThreadPreview = ({ thread }) => {
   return (
@@ -19,7 +20,10 @@ const ThreadPreview = ({ thread }) => {
       <S.Footer>
         <S.AuthorDetails>
           <S.Avatar />
-          <S.Username>{thread.author?.username}</S.Username>
+          <S.Username>
+            {thread.author?.username}
+            <S.Created fromNow>{thread.createdAt}</S.Created>
+          </S.Username>
         </S.AuthorDetails>
 
         <S.Likes>
