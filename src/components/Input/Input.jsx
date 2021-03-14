@@ -4,7 +4,6 @@ import { InputAdornment, IconButton } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 const Input = ({
-  half,
   name,
   label,
   handleChange,
@@ -14,9 +13,11 @@ const Input = ({
   error,
   register,
   required,
+  ...props
 }) => {
   return (
     <S.Input
+      {...props}
       name={name}
       label={label}
       onChange={handleChange}

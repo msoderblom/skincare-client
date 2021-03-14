@@ -13,11 +13,11 @@ export const Button = styled.button`
   color: white;
   border: none;
   padding: 10px 15px;
-  font-size: 15px;
+  font-size: 12px;
   text-align: center;
 
   @media (min-width: ${({ theme }) => theme.mobile}) {
-    font-size: 20px;
+    font-size: 18px;
   }
   &:hover {
     cursor: pointer;

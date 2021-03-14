@@ -1,9 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TextField } from "@material-ui/core";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import Input from "../../../components/Input";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 import { threadActions } from "../../../redux/forum/threads";
 import createThreadSchema from "../../../validation/createThreadSchema";
 import * as S from "./styled";
@@ -26,10 +25,10 @@ const CreateThreadPage = () => {
 
   return (
     <S.Container>
-      <p>CreateThreadPage</p>
+      <PageTitle>Create Thread</PageTitle>
 
-      <form onSubmit={handleSubmit(handleCreateThread)}>
-        <Input
+      <S.Form onSubmit={handleSubmit(handleCreateThread)}>
+        <S.TitleInput
           name="title"
           register={register}
           error={errors.title?.message}
@@ -38,7 +37,7 @@ const CreateThreadPage = () => {
           required
         />
 
-        <TextField
+        <S.BodyInput
           name="body"
           label="Body"
           multiline
@@ -50,10 +49,27 @@ const CreateThreadPage = () => {
           errors={errors.body}
         />
 
-        <button type="submit">Create Thread</button>
+        <S.CategorySelect
+          name="category"
+          // register={register}
+          error={errors.title?.message}
+          type="text"
+          label="Category"
+          required
+        />
+        <S.TagsInput
+          name="tags"
+          // register={register}
+          error={errors.title?.message}
+          type="text"
+          label="Tags"
+          required
+        />
+
+        <S.SubmitButton type="submit" title="Create Thread" />
         {createThreadError && <span>{createThreadError}</span>}
         {createdThread && <span>{createdThread.title}</span>}
-      </form>
+      </S.Form>
     </S.Container>
   );
 };
