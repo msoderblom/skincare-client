@@ -5,27 +5,32 @@ export const Container = styled.div`
   padding: 0 10px;
 `;
 export const ThreadContent = styled.div`
-  padding: 10px 30px;
+  padding: 10px 15px 10px 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   background-color: white;
 
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto;
   column-gap: 10px;
   row-gap: 10px;
+`;
+export const Header = styled.div`
+  grid-column: 1/4;
+  grid-row: 1/2;
 `;
 
 export const AuthorDetails = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  float: right;
 
-  grid-column: 3/4;
+  /* grid-column: 3/4;
   grid-row: 1/2;
   align-self: flex-start;
-  justify-self: flex-end;
+  justify-self: flex-end; */
 `;
 
 export const Avatar = styled.div`
@@ -66,11 +71,11 @@ export const Tilte = styled.h2`
   font-family: "Playfair Display";
   font-weight: 900;
   font-size: 30px;
-  margin: 0 0 0 0;
+  margin: 15px 0 0 0;
   color: #e5bbcc;
   line-height: 1;
-  grid-column: 1/4;
-  grid-row: 2/3;
+  /* grid-column: 1/4;
+  grid-row: 2/3; */
   /* align-self: flex-start; */
 `;
 
@@ -84,7 +89,7 @@ export const Body = styled.p`
 
   margin: 10px 0 5px 0;
   grid-column: 1/4;
-  grid-row: 3/4;
+  grid-row: 2/3;
 `;
 
 export const Likes = styled.div`
@@ -96,7 +101,7 @@ export const Likes = styled.div`
   color: rgba(0, 0, 0, 0.7);
 
   grid-column: 3/4;
-  grid-row: 4/5;
+  grid-row: 3/4;
   align-self: flex-end;
   justify-self: flex-end;
 

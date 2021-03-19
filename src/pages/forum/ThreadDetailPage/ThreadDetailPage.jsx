@@ -37,14 +37,16 @@ const ThreadDetailPage = () => {
       {loading && <CircularProgress />}
       {thread && (
         <S.ThreadContent>
-          <S.AuthorDetails>
-            <S.Info>
-              <S.Username>{thread.author?.username}</S.Username>
-              <S.Created fromNow>{thread.createdAt}</S.Created>
-            </S.Info>
-            <S.Avatar />
-          </S.AuthorDetails>
-          <S.Tilte>{thread.title}</S.Tilte>
+          <S.Header>
+            <S.AuthorDetails>
+              <S.Info>
+                <S.Username>{thread.author?.username}</S.Username>
+                <S.Created fromNow>{thread.createdAt}</S.Created>
+              </S.Info>
+              <S.Avatar />
+            </S.AuthorDetails>
+            <S.Tilte>{thread.title}</S.Tilte>
+          </S.Header>
           <S.Body>{thread.body}</S.Body>
           <S.Likes>
             <HiHeart size="1.2em" />
