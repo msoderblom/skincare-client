@@ -13,7 +13,7 @@ export const Container = styled.header`
   background-color: white;
   width: 100%;
   height: 80px;
-  padding-inline: 10px;
+  padding: 0 10px;
   /* -webkit-box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49);
   box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.49); */
 
