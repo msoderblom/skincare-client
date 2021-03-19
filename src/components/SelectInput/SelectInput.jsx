@@ -39,8 +39,10 @@ const SelectInput = ({
         as={
           <Select labelId={labelId} label={label}>
             {options.length > 0 &&
-              options.map((option) => (
-                <MenuItem value={option.value}>{option.text}</MenuItem>
+              options.map((option, index) => (
+                <MenuItem value={option.value} key={index + option.value}>
+                  {option.text}
+                </MenuItem>
               ))}
           </Select>
         }

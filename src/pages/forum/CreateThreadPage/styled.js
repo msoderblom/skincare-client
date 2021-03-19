@@ -25,6 +25,7 @@ export const Container = styled.div`
   /* justify-content: center; */
   justify-items: center;
 `;
+
 export const Form = styled.form`
   width: 95%;
   max-width: 850px;
@@ -40,6 +41,7 @@ export const Form = styled.form`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
     grid-template-rows: auto auto auto auto;
     row-gap: 50px;
+    column-gap: 15px;
     width: 80%;
   }
 `;
@@ -48,10 +50,11 @@ export const TitleInput = styled(Input)`
   grid-row: 1 / 2;
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    grid-column: 1 / 4;
+    grid-column: 1 / 7;
     grid-row: 1 / 2;
   }
 `;
+
 export const BodyInput = styled(TextField)`
   grid-row: 2 / 3;
 
@@ -59,13 +62,15 @@ export const BodyInput = styled(TextField)`
     grid-column: 1 / 7;
   }
 `;
+
 export const CategorySelect = styled(SelectInput)`
   grid-row: 3 / 4;
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
   }
 `;
+
 export const TagsInput = styled(Input)`
   grid-row: 4 / 5;
 
@@ -74,6 +79,7 @@ export const TagsInput = styled(Input)`
     grid-row: 3 / 4;
   }
 `;
+
 export const SubmitButton = styled(Button)`
   grid-row: 5 / 6;
   @media (min-width: ${({ theme }) => theme.tablet}) {

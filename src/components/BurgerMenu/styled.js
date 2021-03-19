@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { NavLink as NavigationLink } from "react-router-dom";
 import styled from "styled-components";
 
-const activeClassName = "nav-item-active";
+const activeClassName = "burger-nav-item-active";
 
 export const Menu = styled.div`
   background-color: #e5bbcc;
@@ -47,7 +47,7 @@ export const Nav = styled.nav`
   flex-direction: column;
 `;
 
-export const NavLink = styled(Link).attrs({ activeClassName })`
+export const NavLink = styled(NavigationLink).attrs({ activeClassName })`
   color: ${({ theme }) => theme.lavender};
   text-decoration: none;
   text-transform: uppercase;
