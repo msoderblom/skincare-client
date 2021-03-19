@@ -4,6 +4,7 @@ import Moment from "react-moment";
 export const Container = styled.div`
   padding: 0 10px;
 `;
+
 export const ThreadContent = styled.div`
   padding: 10px 15px 10px 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -16,6 +17,7 @@ export const ThreadContent = styled.div`
   column-gap: 10px;
   row-gap: 10px;
 `;
+
 export const Header = styled.div`
   grid-column: 1/4;
   grid-row: 1/2;
@@ -26,11 +28,6 @@ export const AuthorDetails = styled.div`
   flex-direction: row;
   align-items: center;
   float: right;
-
-  /* grid-column: 3/4;
-  grid-row: 1/2;
-  align-self: flex-start;
-  justify-self: flex-end; */
 `;
 
 export const Avatar = styled.div`
@@ -50,6 +47,7 @@ export const Info = styled.div`
   align-items: flex-end;
   justify-content: center;
 `;
+
 export const Username = styled.span`
   font-weight: 500;
   font-size: 16px;
@@ -74,9 +72,6 @@ export const Tilte = styled.h2`
   margin: 15px 0 0 0;
   color: #e5bbcc;
   line-height: 1;
-  /* grid-column: 1/4;
-  grid-row: 2/3; */
-  /* align-self: flex-start; */
 `;
 
 export const Body = styled.p`
@@ -86,7 +81,6 @@ export const Body = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.7);
-
   margin: 10px 0 5px 0;
   grid-column: 1/4;
   grid-row: 2/3;
@@ -99,7 +93,6 @@ export const Likes = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
-
   grid-column: 3/4;
   grid-row: 3/4;
   align-self: flex-end;

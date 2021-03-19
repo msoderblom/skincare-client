@@ -65,8 +65,6 @@ const CommentsSection = ({ threadID }) => {
 
   return (
     <S.Container>
-      <p>CommentsSection</p>
-
       {user ? (
         <form onSubmit={handleSubmit(handleSendComment)}>
           <p>Leave a comment</p>
@@ -92,7 +90,7 @@ const CommentsSection = ({ threadID }) => {
           </button>
         </div>
       )}
-
+      <h2>Comments</h2>
       {comments.length > 0 && (
         <List>
           {comments.map((comment) => (
