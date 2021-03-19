@@ -18,10 +18,10 @@ export const getPosts = (queryParams = "", history) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_POSTS_FAILURE,
-      error: error.response.data?.error || error.message,
+      error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
+    console.log(error?.response?.data?.error);
   }
 };
 

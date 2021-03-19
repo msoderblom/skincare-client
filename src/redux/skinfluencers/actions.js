@@ -16,9 +16,9 @@ export const getSkinfluencers = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_SKINFLUENCERS_FAILURE,
-      error: error.response.data?.error || error.message,
+      error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
+    console.log(error?.response?.data?.error);
   }
 };

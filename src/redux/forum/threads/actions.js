@@ -20,10 +20,10 @@ export const createThread = (formData, history) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: actionTypes.CREATE_THREAD_FAILURE,
-      error: error.response.data?.error || error.message,
+      error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
+    console.log(error?.response?.data?.error);
   }
 };
 export const getThreads = (queryParams = "", history) => async (dispatch) => {
@@ -45,10 +45,10 @@ export const getThreads = (queryParams = "", history) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_THREADS_FAILURE,
-      error: error.response.data?.error || error.message,
+      error: error?.response?.data?.error || error.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
+    console.log(error?.response?.data?.error);
   }
 };
 export const getOneThread = (id, history) => async (dispatch) => {
