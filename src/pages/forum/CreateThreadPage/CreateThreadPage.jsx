@@ -8,7 +8,7 @@ import createThreadSchema from "../../../validation/createThreadSchema";
 import * as S from "./styled";
 
 const CreateThreadPage = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, control } = useForm({
     resolver: yupResolver(createThreadSchema),
   });
   const dispatch = useDispatch();
@@ -51,11 +51,14 @@ const CreateThreadPage = () => {
 
         <S.CategorySelect
           name="category"
-          // register={register}
-          error={errors.title?.message}
-          type="text"
           label="Category"
-          required
+          control={control}
+          defaultValue="uncategorized"
+          options={[
+            { text: "Uncategorized", value: "uncategorized" },
+            { text: "Review", value: "review" },
+            { text: "Serum", value: "serum" },
+          ]}
         />
         <S.TagsInput
           name="tags"

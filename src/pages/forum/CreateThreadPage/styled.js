@@ -2,6 +2,7 @@ import styled from "styled-components";
 import defaultInput from "../../../components/Input";
 import { TextField } from "@material-ui/core";
 import Button from "../../../components/Button";
+import SelectInput from "../../../components/SelectInput/SelectInput";
 
 export const Input = styled(defaultInput)`
   .MuiOutlinedInput-notchedOutline {
@@ -44,8 +45,7 @@ export const BodyInput = styled(TextField)`
   grid-column: 1 / 7;
   grid-row: 2 / 3;
 `;
-export const CategorySelect = styled(Input)`
-  /* TODO: change to select */
+export const CategorySelect = styled(SelectInput)`
   grid-column: 1 / 3;
   grid-row: 3 / 4;
 `;
