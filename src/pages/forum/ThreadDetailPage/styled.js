@@ -1,3 +1,107 @@
 import styled from "styled-components";
+import Moment from "react-moment";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding: 0 10px;
+`;
+export const ThreadContent = styled.div`
+  padding: 10px 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  background-color: white;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-rows: auto auto auto auto;
+  column-gap: 10px;
+  row-gap: 10px;
+`;
+
+export const AuthorDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  grid-column: 3/4;
+  grid-row: 1/2;
+  align-self: flex-start;
+  justify-self: flex-end;
+`;
+
+export const Avatar = styled.div`
+  border-radius: 50%;
+  background: #c4c4c4;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+`;
+
+export const Info = styled.div`
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+`;
+export const Username = styled.span`
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+`;
+
+export const Created = styled(Moment)`
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 8px;
+  line-height: 1;
+`;
+
+export const Tilte = styled.h2`
+  font-family: "Playfair Display";
+  font-weight: 900;
+  font-size: 30px;
+  margin: 0 0 0 0;
+  color: #e5bbcc;
+  line-height: 1;
+  grid-column: 1/4;
+  grid-row: 2/3;
+  /* align-self: flex-start; */
+`;
+
+export const Body = styled.p`
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.7);
+
+  margin: 10px 0 5px 0;
+  grid-column: 1/4;
+  grid-row: 3/4;
+`;
+
+export const Likes = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+
+  grid-column: 3/4;
+  grid-row: 4/5;
+  align-self: flex-end;
+  justify-self: flex-end;
+
+  span {
+    margin-top: 1.5px;
+    margin-left: 2px;
+  }
+`;
