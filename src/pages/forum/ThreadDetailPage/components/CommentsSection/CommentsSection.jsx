@@ -1,10 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListItemText,
-  TextField,
-  Typography,
-} from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,12 +11,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as S from "./styled";
 import io from "socket.io-client";
 import createCommentSchema from "../../../../../validation/createCommentSchema";
+import Button from "../../../../../components/Button";
+import { HiHeart } from "react-icons/hi";
 
 let socket;
 const CommentsSection = ({ threadID }) => {
   const ENDPOINT = process.env.REACT_APP_SOCKET_ENDPOINT;
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const { comments, getCommentsError, createCommentError } = useSelector(
     (state) => state.forum.comments
@@ -79,39 +74,33 @@ const CommentsSection = ({ threadID }) => {
             errors={errors.content}
           />
 
-          <button type="submit">Comment</button>
+          <Button type="submit" title="Comment" />
           {createCommentError && <span>{createCommentError}</span>}
         </form>
       ) : (
         <div>
           <span>Sign in to leave a comment</span>
-          <button onClick={() => history.push("/auth")}>
-            Sign In / Sign Up
-          </button>
+          <Button link="/auth" title="Sign In / Sign Up" />
         </div>
       )}
       <h2>Comments</h2>
       {comments.length > 0 && (
-        <List>
-          {comments.map((comment) => (
-            <ListItem key={comment._id} alignItems="flex-start">
-              <ListItemText
-                primary={comment.author.username}
-                secondary={
-                  <>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      color="textPrimary"
-                    >
-                      {comment.content}
-                    </Typography>
-                  </>
-                }
-              />
-            </ListItem>
+        <S.CommentsList>
+          {[...comments].reverse().map((comment) => (
+            <S.Comment key={comment._id}>
+              <S.Avatar />
+              <S.Info>
+                <S.Username>{comment.author?.username}</S.Username>
+                <S.Created fromNow>{comment.createdAt}</S.Created>
+              </S.Info>
+              <S.Content>{comment.content}</S.Content>
+              <S.Likes>
+                <HiHeart size="1.2em" />
+                <span>{comment.likes.length}</span>
+              </S.Likes>
+            </S.Comment>
           ))}
-        </List>
+        </S.CommentsList>
       )}
 
       {getCommentsError && <span>{getCommentsError}</span>}
