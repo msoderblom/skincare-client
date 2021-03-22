@@ -20,15 +20,18 @@ const SkinfluencersPage = () => {
   return (
     <S.Container>
       <p>SkinfluencersPage</p>
-
       <div>
         {loading && <CircularProgress />}
-        {skinfluencers &&
-          !loading &&
-          skinfluencers.map((skinfluencer) => (
-            <Skinfluencer key={skinfluencer._id} skinfluencer={skinfluencer} />
-          ))}
-
+        <S.List>
+          {skinfluencers &&
+            !loading &&
+            skinfluencers.map((skinfluencer) => (
+              <Skinfluencer
+                key={skinfluencer._id}
+                skinfluencer={skinfluencer}
+              />
+            ))}
+        </S.List>
         {getSkinfluencersError && <span>{getSkinfluencersError}</span>}
       </div>
     </S.Container>
