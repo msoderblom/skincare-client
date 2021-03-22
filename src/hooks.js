@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const useOnClickOutside = (ref, handler, btnID) => {
   useEffect(() => {
@@ -20,4 +20,30 @@ export const useOnClickOutside = (ref, handler, btnID) => {
       document.removeEventListener("mousedown", listener);
     };
   }, [ref, handler, btnID]);
+};
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+};
+
+/* This hook is copied from https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs*/
+export const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
 };
