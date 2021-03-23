@@ -15,6 +15,7 @@ import BurgerMenu from "./components/BurgerMenu";
 import { useOnClickOutside } from "./hooks";
 import { useDispatch } from "react-redux";
 import { appActions } from "./redux/app";
+import KBeautyPage from "./pages/KBeautyPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,8 @@ const App = () => {
           <Switch>
             <Route exact path="/auth" component={AuthPage} />
             <Route exact path="/skinfluencers" component={SkinfluencersPage} />
+            <Route exact path="/k-beauty" component={KBeautyPage} />
+            <Route exact path="/k-beauty/:brandslug" component={KBeautyPage} />
             <Route exact path="/blog" component={BlogFeedPage} />
             <Route exact path="/blog/post/:id" component={PostDetailPage} />
             <Route exact path="/forum" component={ForumFeedPage} />
