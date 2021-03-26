@@ -22,3 +22,25 @@ export const getAllBrands = () => async (dispatch) => {
     console.log(error?.response?.data?.error);
   }
 };
+
+export const getAllResellers = () => async (dispatch) => {
+  dispatch({ type: actionTypes.GET_ALL_RESELLERS_REQUEST });
+
+  try {
+    const {
+      data: { resellers },
+    } = await api.getAllResellers();
+
+    dispatch({
+      type: actionTypes.GET_ALL_RESELLERS_SUCCESS,
+      payload: resellers,
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.GET_ALL_RESELLERS_FAILURE,
+      error: error?.response?.data?.error || error?.message,
+    });
+    console.error(error);
+    console.log(error?.response?.data?.error);
+  }
+};

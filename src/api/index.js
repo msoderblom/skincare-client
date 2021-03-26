@@ -44,3 +44,4 @@ export const getSkinfluencers = () => API.get(`/skinfluencers`);
 
 // K-beauty
 export const getAllBrands = () => API.get(`/k-beauty/brands`);
+export const getAllResellers = () => API.get(`/k-beauty/resellers`);
