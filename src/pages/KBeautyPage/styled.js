@@ -23,7 +23,8 @@ export const BrandLink = styled(NavLink).attrs({ activeClassName })`
 `;
 
 export const MainContent = styled.div`
-  background-color: lightblue;
+  ${({ theme }) => theme.cardStyle}
+  padding: 20px;
 `;
 export const BrandInfo = styled.div``;
 
@@ -36,4 +37,7 @@ export const BrandName = styled.h2`
   line-height: 1;
 `;
 export const Description = styled.p``;
-export const Resellers = styled.ul``;
+export const Resellers = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
