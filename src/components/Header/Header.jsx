@@ -51,7 +51,7 @@ const Header = () => {
       <S.NavBar />
       <S.UserAuth style={{ display: "flex", justifyContent: "flex-end" }}>
         {user && <p>User: {user.username}</p>}
-        {user && <button onClick={signOut}>Sign Out</button>}
+        {user && <Button onClick={signOut} title="Sign Out" />}
         {!user && <Button link="/auth" title="Sign In / Sign Up" />}
       </S.UserAuth>
     </S.Container>
