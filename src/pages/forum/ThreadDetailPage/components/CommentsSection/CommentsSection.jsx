@@ -60,29 +60,29 @@ const CommentsSection = ({ threadID }) => {
   return (
     <S.Container>
       {user ? (
-        <form onSubmit={handleSubmit(handleSendComment)}>
-          <p>Leave a comment</p>
+        <S.CommentBox onSubmit={handleSubmit(handleSendComment)}>
+          <h3>Leave a comment</h3>
 
-          <TextField
+          <S.CommentField
             name="content"
             label="Your comment"
             multiline
             variant="outlined"
-            inputRef={register}
+            register={register}
             helperText={errors.content?.message}
             errors={errors.content}
           />
 
           <Button type="submit" title="Comment" />
           {createCommentError && <span>{createCommentError}</span>}
-        </form>
+        </S.CommentBox>
       ) : (
-        <div>
+        <S.NotSignedInContainer>
           <span>Sign in to leave a comment</span>
           <Button link="/auth" title="Sign In / Sign Up" />
-        </div>
+        </S.NotSignedInContainer>
       )}
-      <h2>Comments</h2>
+      <S.Title>Comments</S.Title>
       {comments.length > 0 && (
         <S.CommentsList>
           {[...comments].reverse().map((comment) => (

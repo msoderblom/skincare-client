@@ -3,6 +3,9 @@ import Moment from "react-moment";
 
 export const Container = styled.div`
   padding: 0 10px;
+
+  max-width: 850px;
+  margin: auto auto;
 `;
 
 export const ThreadContent = styled.div`
@@ -10,6 +13,7 @@ export const ThreadContent = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   background-color: white;
+  margin-bottom: 20px;
 
   display: grid;
   grid-template-columns: 1fr 1fr auto;

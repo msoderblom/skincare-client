@@ -1,22 +1,60 @@
 import styled from "styled-components";
 import Moment from "react-moment";
+import Input from "../../../../../components/Input";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  ${({ theme }) => theme.cardStyle}
+  padding: 30px;
+`;
+
+export const Title = styled.h2`
+  margin-top: 0;
+`;
+export const NotSignedInContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    margin-right: 10px;
+  }
+`;
+export const CommentBox = styled.form`
+  margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 30px;
+
+  h3 {
+    grid-column: 1 /3;
+  }
+`;
+export const CommentField = styled(Input)`
+  margin-bottom: 10px;
+`;
+
 export const CommentsList = styled.ul`
   list-style: none;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 15px;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid;
+    border-bottom-color: #a3a3a429;
+  }
 `;
 
 export const Comment = styled.li`
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto auto auto;
-
   column-gap: 20px;
-  row-gap: 10px;
+  row-gap: 8px;
+
+  padding-bottom: 15px;
 `;
 
 export const Avatar = styled.div`
