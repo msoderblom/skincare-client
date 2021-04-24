@@ -84,6 +84,7 @@ const KBeautyPage = () => {
                     (resellerItem) => resellerItem._id === resellerID
                   );
 
+                  if (!resellerObj) return <></>;
                   return (
                     <li>
                       <ResellerItem reseller={resellerObj} />
