@@ -10,7 +10,7 @@ export const theme = {
   desktop: "992px",
   largeDesktop: "1200px",
   cardStyle: css`
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background-color: white;
   `,

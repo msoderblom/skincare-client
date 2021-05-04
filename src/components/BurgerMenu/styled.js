@@ -51,7 +51,7 @@ export const NavLink = styled(NavigationLink).attrs({ activeClassName })`
   color: ${({ theme }) => theme.lavender};
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 22px;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
 
@@ -60,5 +60,9 @@ export const NavLink = styled(NavigationLink).attrs({ activeClassName })`
     color: ${({ theme }) => theme.primaryDark};
 
     text-decoration: underline;
+  }
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    font-size: 40px;
   }
 `;

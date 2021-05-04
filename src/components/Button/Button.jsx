@@ -9,7 +9,7 @@ const Button = ({ link, title, ...props }) => {
         <Link
           onClick={(e) => !link && e.preventDefault()}
           to={link ? link : ""}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: "none", display: "flex", flexGrow: 1 }}
         >
           <S.Button {...props}>{title}</S.Button>
         </Link>

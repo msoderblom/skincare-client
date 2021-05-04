@@ -6,18 +6,23 @@ export const Button = styled.button`
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   letter-spacing: 0.005em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   line-height: 30px;
   text-transform: uppercase;
   color: white;
   border: none;
-  padding: 10px 15px;
-  font-size: 12px;
+  padding: 8px 8px;
+  font-size: 10px;
   text-align: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
 
   @media (min-width: ${({ theme }) => theme.mobile}) {
     font-size: 18px;
+    padding: 10px 15px;
   }
   &:hover {
     cursor: pointer;

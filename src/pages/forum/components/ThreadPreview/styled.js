@@ -2,19 +2,26 @@ import styled from "styled-components";
 import Moment from "react-moment";
 
 export const Container = styled.div`
-  padding: 25px 45px;
+  padding: 25px 20px;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); */
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   background-color: white;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    padding: 25px 45px;
+  }
 `;
 
 export const Tilte = styled.h3`
   font-family: "Playfair Display";
   font-weight: 900;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0 0 15px 0;
   color: #e5bbcc;
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    font-size: 30px;
+  }
 `;
 
 export const Body = styled.p`

@@ -23,7 +23,7 @@ const ForumFeedPage = (props) => {
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(threadActions.getThreads(`?page=${page}&limit=10`));
+    dispatch(threadActions.getThreads(`?page=${page}&limit=8`));
   }, [page, dispatch, location]);
 
   const handlePageChange = (event, value) => {
@@ -51,7 +51,7 @@ const ForumFeedPage = (props) => {
               count={totalPages}
               page={page}
               onChange={handlePageChange}
-              style={{ justifySelf: "center" }}
+              style={{ justifySelf: "center", alignSelf: "end" }}
             />
           )}
           <S.ThreadList>
@@ -62,12 +62,19 @@ const ForumFeedPage = (props) => {
             ))}
           </S.ThreadList>
           {totalPages > 1 && (
-            <Pagination
-              count={totalPages}
-              page={page}
-              onChange={handlePageChange}
-              style={{ justifySelf: "center" }}
-            />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Pagination
+                count={totalPages}
+                page={page}
+                onChange={handlePageChange}
+                style={{
+                  justifySelf: "center",
+                  alignSelf: "start",
+                  // marginBottom: 1000,
+                }}
+              />
+              <div style={{ height: 20 }} />
+            </div>
           )}
         </S.ThreadsContainer>
       )}

@@ -11,12 +11,12 @@ export const Title = styled.h2`
   margin-top: 0;
 `;
 export const NotSignedInContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 10px;
+  margin-bottom: 10px;
   span {
-    margin-right: 10px;
+    place-self: center end;
   }
 `;
 export const CommentBox = styled.form`

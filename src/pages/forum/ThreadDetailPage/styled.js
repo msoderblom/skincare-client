@@ -8,8 +8,9 @@ export const Container = styled.div`
 `;
 
 export const ThreadContent = styled.div`
-  padding: 10px 15px 10px 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px 15px;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); */
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   background-color: white;
   margin-bottom: 20px;
@@ -19,6 +20,10 @@ export const ThreadContent = styled.div`
   grid-template-rows: auto auto auto;
   column-gap: 10px;
   row-gap: 10px;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    padding: 10px 15px 10px 30px;
+  }
 `;
 
 export const Header = styled.div`
@@ -71,10 +76,14 @@ export const Created = styled(Moment)`
 export const Tilte = styled.h2`
   font-family: "Playfair Display";
   font-weight: 900;
-  font-size: 30px;
+  font-size: 25px;
   margin: 15px 0 0 0;
   color: #e5bbcc;
   line-height: 1;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    font-size: 30px;
+  }
 `;
 
 export const Body = styled.p`
