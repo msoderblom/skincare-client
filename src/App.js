@@ -28,12 +28,12 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <div id="outer-container">
+      <div id="outer-container" style={{ height: "100%" }}>
         <Header />
         <div ref={node}>
           <BurgerMenu />
         </div>
-        <main id="page-wrap" style={{ paddingTop: 100 }}>
+        <main id="page-wrap" style={{ paddingTop: 100, height: "100%" }}>
           <Switch>
             <Route exact path="/auth" component={AuthPage} />
             <Route exact path="/skinfluencers" component={SkinfluencersPage} />

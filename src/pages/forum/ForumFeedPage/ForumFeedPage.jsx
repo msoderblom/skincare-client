@@ -23,7 +23,7 @@ const ForumFeedPage = (props) => {
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(threadActions.getThreads(`?page=${page}&limit=3`));
+    dispatch(threadActions.getThreads(`?page=${page}&limit=10`));
   }, [page, dispatch, location]);
 
   const handlePageChange = (event, value) => {
@@ -37,10 +37,10 @@ const ForumFeedPage = (props) => {
         {user ? (
           <Button title="create new thread" link="/forum/create-thread" />
         ) : (
-          <div>
+          <S.SignInBtnWrapper>
             <span>Sign in to create a thread</span>
             <Button title="Sign In / Sign Up" link="/auth" />
-          </div>
+          </S.SignInBtnWrapper>
         )}
       </S.SideBar>
       {loading && <CircularProgress />}
@@ -51,6 +51,7 @@ const ForumFeedPage = (props) => {
               count={totalPages}
               page={page}
               onChange={handlePageChange}
+              style={{ justifySelf: "center" }}
             />
           )}
           <S.ThreadList>
@@ -60,6 +61,14 @@ const ForumFeedPage = (props) => {
               </li>
             ))}
           </S.ThreadList>
+          {totalPages > 1 && (
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              style={{ justifySelf: "center" }}
+            />
+          )}
         </S.ThreadsContainer>
       )}
 

@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
   *, *::after, *::before {
     box-sizing: border-box;
   }
+
+  #root {
+    height: 100vh;
+  }
   body {
     /* background: ${({ theme }) => theme.primaryDark}; */
     background: #fcf6fa;

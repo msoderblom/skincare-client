@@ -3,7 +3,6 @@ import Moment from "react-moment";
 
 export const Container = styled.div`
   padding: 0 10px;
-
   max-width: 850px;
   margin: auto auto;
 `;
