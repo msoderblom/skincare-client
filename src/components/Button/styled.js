@@ -19,10 +19,14 @@ export const Button = styled.button`
   display: flex;
   flex-grow: 1;
   justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  height: 45px;
 
   @media (min-width: ${({ theme }) => theme.mobile}) {
     font-size: 18px;
     padding: 10px 15px;
+    height: 50px;
   }
   &:hover {
     cursor: pointer;
