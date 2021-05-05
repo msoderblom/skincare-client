@@ -14,9 +14,9 @@ const KBeautyPage = () => {
   const {
     brands,
     resellers,
-    getAllBrandsError,
+    /*  getAllBrandsError,
     getAllResellersError,
-    loading,
+    loading, */
   } = useSelector((state) => state.kBeauty);
 
   useEffect(() => {
