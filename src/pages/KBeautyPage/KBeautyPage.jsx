@@ -49,6 +49,7 @@ const KBeautyPage = () => {
           condimentum tempus diam, ultricies sollicitudin erat facilisis eget.{" "}
         </p>
 
+        <S.BrandLink to="/k-beauty/">All Resellers</S.BrandLink>
         <ul>
           {brands &&
             brands.map((brand) => (
@@ -62,15 +63,18 @@ const KBeautyPage = () => {
       </S.Sidebar>
       <S.MainContent>
         {!brand && (
-          <S.Resellers>
-            {resellers &&
-              resellers.length > 0 &&
-              resellers.map((reseller) => (
-                <li>
-                  <ResellerItem reseller={reseller} />
-                </li>
-              ))}
-          </S.Resellers>
+          <>
+            <S.Title>All Resellers</S.Title>
+            <S.Resellers>
+              {resellers &&
+                resellers.length > 0 &&
+                resellers.map((reseller) => (
+                  <li>
+                    <ResellerItem reseller={reseller} />
+                  </li>
+                ))}
+            </S.Resellers>
+          </>
         )}
 
         {brand && (

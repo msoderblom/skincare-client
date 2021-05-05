@@ -6,15 +6,15 @@ const ResellerItem = ({ reseller }) => {
   return (
     <S.Container>
       <S.Name>{reseller?.name}</S.Name>
-      <p>{reseller?.description}</p>
       {reseller.link && (
-        <>
-          <HiLink />
+        <S.ResellerLink>
+          <HiLink size={25} />
           <a href={reseller.link.url}>
             {reseller.link.linkName || reseller.link.url}
           </a>
-        </>
+        </S.ResellerLink>
       )}
+      <S.Description>{reseller?.description}</S.Description>
     </S.Container>
   );
 };

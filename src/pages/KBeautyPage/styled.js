@@ -7,13 +7,19 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
 `;
 export const Sidebar = styled.div`
-  background-color: pink;
+  background-color: #fdd3da;
+  padding: 15px;
 `;
 
 export const BrandLink = styled(NavLink).attrs({ activeClassName })`
-  color: #b572f4;
+  /* color: #b6a9e9; */
+  color: #e38f93;
   text-decoration: none;
 
   &.${activeClassName} {
@@ -40,4 +46,9 @@ export const Description = styled.p``;
 export const Resellers = styled.ul`
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 15px;
 `;
+
+export const Title = styled(BrandName)``;
