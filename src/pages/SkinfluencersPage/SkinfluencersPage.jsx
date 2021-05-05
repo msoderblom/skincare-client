@@ -19,7 +19,18 @@ const SkinfluencersPage = () => {
 
   return (
     <S.Container>
-      <p>SkinfluencersPage</p>
+      <S.SidebarWrapper>
+        <S.PageTitle>Skinfluencer tips</S.PageTitle>
+        <S.Sidebar>
+          <h2>What’s a skinfluencer?</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
+            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.
+            Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
+            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.{" "}
+          </p>
+        </S.Sidebar>
+      </S.SidebarWrapper>
       <div>
         {loading && <CircularProgress />}
         <S.List>

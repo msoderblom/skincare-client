@@ -1,18 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.li`
-  padding: 10px 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-  background-color: white;
+  padding: 35px 15px;
+  ${({ theme }) => theme.cardStyle}
   display: grid;
   grid-template-rows: auto auto auto auto;
   grid-template-columns: 1fr;
   /* row-gap: 10px; */
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
+    /* grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr; */
+    padding: 35px 20px;
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
     grid-template-rows: auto auto auto;
     grid-template-columns: 50% 50%;
+    padding: 35px 30px;
   }
 `;
 
@@ -22,16 +26,21 @@ export const Name = styled.h3`
   margin: 0;
   font-family: "Playfair Display";
   font-weight: 900;
-  font-size: 30px;
+  font-size: 25px;
   /* margin: 15px 0 0 0; */
   color: #e5bbcc;
   line-height: 1;
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    font-size: 30px;
+  }
 `;
 export const Title = styled.p`
   grid-column: 1/2;
   grid-row: 2/3;
   font-family: "IBM Plex Sans", sans-serif;
   margin: 0;
+  margin-top: 5px;
+  margin-left: 1px;
   font-weight: 400;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.6);
@@ -56,11 +65,13 @@ export const SocialLinkList = styled.ul`
   display: grid;
   grid-template-columns: auto auto;
   align-items: start;
-  gap: 5px;
+  column-gap: 5px;
+  row-gap: 10px;
 
-  @media (min-width: ${({ theme }) => theme.tablet}) {
+  @media (min-width: ${({ theme }) => theme.desktop}) {
     grid-column: 2/3;
     grid-row: 1/4;
+    gap: 5px;
   }
 `;
 
