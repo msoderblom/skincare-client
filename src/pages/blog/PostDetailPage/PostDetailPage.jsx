@@ -30,17 +30,17 @@ const PostDetailPage = () => {
 
   return (
     <S.Container>
-      <p>PostDetailPage</p>
       {loading && <CircularProgress />}
-      {id && <p>{id}</p>}
       {post && (
-        <div>
-          <h2>{post.title}</h2>
-          <span>Posted by: {post.author}</span>
+        <S.PostWrapper>
+          <S.Title>{post.title}</S.Title>
+          <S.AuthorDetails>
+            <S.Author>Posted by: {post?.author}</S.Author>
+            <S.Created fromNow>{post.createdAt}</S.Created>
+          </S.AuthorDetails>
           <div dangerouslySetInnerHTML={{ __html: post.body }} />
-        </div>
+        </S.PostWrapper>
       )}
-
       {getOnePostError && <span>{getOnePostError}</span>}
     </S.Container>
   );

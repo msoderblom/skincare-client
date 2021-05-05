@@ -14,7 +14,7 @@ const ThreadPreview = ({ thread }) => {
         to={`/forum/thread/${thread._id}`}
         style={{ textDecoration: "none" }}
       >
-        <S.Tilte>{thread.title}</S.Tilte>
+        <S.Title>{thread.title}</S.Title>
       </Link>
       <S.Body>{thread.body}</S.Body>
       <S.Footer>

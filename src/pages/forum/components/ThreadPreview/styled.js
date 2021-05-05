@@ -3,16 +3,14 @@ import Moment from "react-moment";
 
 export const Container = styled.div`
   padding: 25px 20px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  background-color: white;
+  ${({ theme }) => theme.cardStyle}
 
   @media (min-width: ${({ theme }) => theme.desktop}) {
     padding: 25px 45px;
   }
 `;
 
-export const Tilte = styled.h3`
+export const Title = styled.h3`
   font-family: "Playfair Display";
   font-weight: 900;
   font-size: 25px;

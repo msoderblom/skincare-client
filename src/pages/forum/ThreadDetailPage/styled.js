@@ -73,7 +73,7 @@ export const Created = styled(Moment)`
   line-height: 1;
 `;
 
-export const Tilte = styled.h2`
+export const Title = styled.h2`
   font-family: "Playfair Display";
   font-weight: 900;
   font-size: 25px;

@@ -45,7 +45,7 @@ const ThreadDetailPage = () => {
               </S.Info>
               <S.Avatar />
             </S.AuthorDetails>
-            <S.Tilte>{thread.title}</S.Tilte>
+            <S.Title>{thread.title}</S.Title>
           </S.Header>
           <S.Body>{thread.body}</S.Body>
           <S.Likes>

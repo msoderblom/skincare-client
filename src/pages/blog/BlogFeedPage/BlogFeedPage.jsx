@@ -30,7 +30,6 @@ const BlogFeedPage = () => {
   };
   return (
     <S.Container>
-      <p>BlogFeedPage</p>
       {totalPages > 1 && (
         <Pagination
           count={totalPages}
@@ -40,11 +39,13 @@ const BlogFeedPage = () => {
       )}
       {loading && <CircularProgress />}
       {posts.length > 0 && !loading && (
-        <div>
+        <S.PostList>
           {posts.map((post) => (
-            <PostPreview key={post._id} post={post} />
+            <li key={post._id}>
+              <PostPreview post={post} />
+            </li>
           ))}
-        </div>
+        </S.PostList>
       )}
 
       {getPostsError && <span>{getPostsError}</span>}
