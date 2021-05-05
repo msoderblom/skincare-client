@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin-right: auto;
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 2.5fr 3fr;
   }
   @media (min-width: ${({ theme }) => theme.desktop}) {
     grid-template-columns: 1.5fr 3fr;
