@@ -14,7 +14,7 @@ export const Button = styled.button`
   color: white;
   border: none;
   padding: 8px 8px;
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   display: flex;
   flex-grow: 1;
@@ -23,7 +23,7 @@ export const Button = styled.button`
   /* flex-direction: column; */
   height: 45px;
 
-  @media (min-width: ${({ theme }) => theme.mobile}) {
+  @media (min-width: ${({ theme }) => theme.tablet}) {
     font-size: 18px;
     padding: 10px 15px;
     height: 50px;

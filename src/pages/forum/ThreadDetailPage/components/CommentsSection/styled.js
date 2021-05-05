@@ -4,7 +4,11 @@ import Input from "../../../../../components/Input";
 
 export const Container = styled.div`
   ${({ theme }) => theme.cardStyle}
-  padding: 30px;
+  padding: 30px 15px;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    padding: 30px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -23,11 +27,18 @@ export const CommentBox = styled.form`
   margin-bottom: 10px;
 
   display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 30px;
-
+  grid-template-columns: 1fr;
+  row-gap: 15px;
   h3 {
-    grid-column: 1 /3;
+    margin: 0;
+  }
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    grid-template-columns: 1fr auto;
+    column-gap: 30px;
+    h3 {
+      grid-column: 1 /3;
+    }
   }
 `;
 export const CommentField = styled(Input)`
