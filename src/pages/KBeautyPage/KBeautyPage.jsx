@@ -28,9 +28,12 @@ const KBeautyPage = () => {
   useEffect(() => {
     if (brandslug) {
       console.log(brandslug);
-      const theBrand = brands.find((branditem) => branditem.slug === brandslug);
-
-      if (theBrand) setBrand(theBrand);
+      if (brands) {
+        const theBrand = brands.find(
+          (branditem) => branditem.slug === brandslug
+        );
+        if (theBrand) setBrand(theBrand);
+      }
     } else {
       setBrand(null);
     }
@@ -41,16 +44,18 @@ const KBeautyPage = () => {
   return (
     <S.Container>
       <S.Sidebar>
-        <h2>What’s K-beauty?</h2>
-        <p>
+        <h2 style={{ color: "white" }}>What’s K-beauty?</h2>
+        <p style={{ color: "#AA4F74" }}>
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
           condimentum tempus diam, ultricies sollicitudin erat facilisis eget.
           Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
           condimentum tempus diam, ultricies sollicitudin erat facilisis eget.{" "}
         </p>
 
+        <S.BrandListTitle>K-beauty brands</S.BrandListTitle>
+        <hr color="#e38f93" />
         <S.BrandLink to="/k-beauty/">All Resellers</S.BrandLink>
-        <ul>
+        <S.BrandList>
           {brands &&
             brands.map((brand) => (
               <li key={brands._id}>
@@ -59,7 +64,7 @@ const KBeautyPage = () => {
                 </S.BrandLink>
               </li>
             ))}
-        </ul>
+        </S.BrandList>
       </S.Sidebar>
       <S.MainContent>
         {!brand && (

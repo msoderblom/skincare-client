@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Name = styled.h3`
   font-family: "Playfair Display";
   font-weight: 900;
-  font-size: 30px;
+  font-size: 25px;
   margin: 15px 0 0 0;
   color: #e5bbcc;
   line-height: 1;
@@ -44,4 +44,5 @@ export const Description = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.7);
+  grid-column: 1/3;
 `;
