@@ -7,6 +7,7 @@ import { userTypes } from "../../redux/user";
 import Button from "../Button/Button";
 import { appActions } from "../../redux/app";
 import BurgerBtn from "../BurgerBtn/BurgerBtn";
+import { HiOutlineUserCircle } from "react-icons/hi";
 
 const Header = () => {
   const location = useLocation();
@@ -49,9 +50,19 @@ const Header = () => {
       <BurgerBtn open={isOpen} onClick={handleMenuClick} id="burgerBtn" />
       <S.SiteTitle>Skincare</S.SiteTitle>
       <S.NavBar />
-      <S.UserAuth style={{ display: "flex", justifyContent: "flex-end" }}>
-        {user && <p>User: {user.username}</p>}
-        {user && <Button onClick={signOut} title="Sign Out" />}
+      <S.UserAuth
+        style={{ display: "flex", justifyContent: "flex-end" }}
+        signedIn={user}
+      >
+        {user && (
+          <S.UserInfo>
+            <HiOutlineUserCircle size={30} color="rgba(0, 0, 0, 0.7)" />
+            <span>{user.username}</span>
+          </S.UserInfo>
+        )}
+        {user && (
+          <Button onClick={signOut} title="Sign Out" className="sign-out-btn" />
+        )}
         {!user && <Button link="/auth" title="Sign In / Sign Up" />}
       </S.UserAuth>
     </S.Container>

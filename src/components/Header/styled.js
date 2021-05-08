@@ -8,7 +8,7 @@ export const Container = styled.header`
   grid-template-rows: auto;
   gap: 6px;
   align-items: center;
-  z-index: 10;
+  z-index: 21;
   position: fixed;
   background-color: white;
   width: 100%;
@@ -30,7 +30,7 @@ export const Container = styled.header`
   }
   @media (min-width: ${({ theme }) => theme.desktop}) {
     /* background: green; */
-    grid-template-columns: 200px 1fr auto;
+    grid-template-columns: 15% 1fr auto;
     gap: 6px;
     #burgerBtn {
       display: none;
@@ -63,4 +63,32 @@ export const NavBar = styled(DefaultNav)`
 `;
 export const UserAuth = styled.div`
   grid-column: 3 / 4;
+  display: grid;
+  column-gap: 20px;
+  ${({ signedIn }) => signedIn && `grid-template-columns: auto auto;`}
+
+  .sign-out-btn {
+    display: none;
+    @media (min-width: 500px) {
+      display: inline;
+    }
+  }
+  /* min-width: 305px; */
+`;
+export const UserInfo = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: 3px;
+  margin-right: 5px;
+
+  @media (min-width: 500px) {
+    margin-right: unset;
+  }
+
+  span {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: IBM Plex Sans;
+    font-size: 15px;
+  }
 `;

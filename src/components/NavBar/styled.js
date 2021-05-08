@@ -5,6 +5,7 @@ const activeClassName = "nav-item-active";
 
 export const Nav = styled.nav`
   /* width: 70%; */
+  padding-left: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
