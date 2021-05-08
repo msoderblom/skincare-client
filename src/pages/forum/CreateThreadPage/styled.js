@@ -22,15 +22,13 @@ export const Container = styled.div`
   gap: 20px;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  /* justify-content: center; */
   justify-items: center;
 `;
 
 export const Form = styled.form`
   width: 95%;
   max-width: 850px;
-  background-color: white;
-  /* background: #fdd3da; */
+  ${({ theme }) => theme.cardStyle}
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr;
@@ -43,6 +41,7 @@ export const Form = styled.form`
     row-gap: 50px;
     column-gap: 15px;
     width: 80%;
+    padding: 25px 20px;
   }
 `;
 
