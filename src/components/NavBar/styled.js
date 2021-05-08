@@ -11,9 +11,14 @@ export const Nav = styled.nav`
   align-items: center;
 `;
 export const NavLink = styled(Link).attrs({ activeClassName })`
-  color: #b572f4;
+  color: #9582df;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 3px 0;
+
+  &:hover {
+    color: #b6a9e9;
+  }
 
   &.${activeClassName} {
     font-weight: bold;

@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <S.Container>
       <BurgerBtn open={isOpen} onClick={handleMenuClick} id="burgerBtn" />
-      <h1>SiteName</h1>
+      <S.SiteTitle>Skincare</S.SiteTitle>
       <S.NavBar />
       <S.UserAuth style={{ display: "flex", justifyContent: "flex-end" }}>
         {user && <p>User: {user.username}</p>}
