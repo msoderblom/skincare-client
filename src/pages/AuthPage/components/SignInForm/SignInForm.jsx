@@ -6,6 +6,7 @@ import Input from "../../../../components/Input";
 import signinSchema from "../../../../validation/signinSchema";
 import { userActions } from "../../../../redux/user";
 import * as S from "./styled";
+import Button from "../../../../components/Button";
 
 const SignInForm = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -24,9 +25,10 @@ const SignInForm = () => {
 
   return (
     <S.Container>
-      <p>SignInForm</p>
-      <form onSubmit={handleSubmit(handleSignIn)}>
+      <S.Title>Sign In</S.Title>
+      <S.Form onSubmit={handleSubmit(handleSignIn)}>
         <Input
+          className="input"
           name="email"
           register={register}
           error={errors.email?.message}
@@ -35,6 +37,7 @@ const SignInForm = () => {
           required
         />
         <Input
+          className="input"
           name="password"
           register={register}
           error={errors.password?.message}
@@ -43,9 +46,9 @@ const SignInForm = () => {
           required
         />
 
-        <button type="submit">Sign In</button>
-        {signInError && <span>{signInError}</span>}
-      </form>
+        <Button type="submit" title="Sign In" className="submit-btn" />
+      </S.Form>
+      {signInError && <span>{signInError}</span>}
     </S.Container>
   );
 };
