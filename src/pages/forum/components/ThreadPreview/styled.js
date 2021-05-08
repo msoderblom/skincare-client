@@ -59,16 +59,24 @@ export const Username = styled.span`
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  flex-direction: column;
   line-height: 24px;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 `;
 
 export const Created = styled(Moment)`
   font-weight: 400;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.7);
-  margin-left: 8px;
   line-height: 23px;
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    margin-left: 8px;
+  }
 `;
 
 export const Likes = styled.div`
