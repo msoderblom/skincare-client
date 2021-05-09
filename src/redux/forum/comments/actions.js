@@ -40,7 +40,11 @@ export const replyToComment = (formData, parentComment, socket) => async (
     );
 
     dispatch({ type: actionTypes.REPLY_TO_COMMENT_SUCCESS, payload: comment });
-    // socket.emit("new-comment", { comment, threadID });
+    socket.emit("new-reply", {
+      comment,
+      parent: updatedParentComment,
+      threadID: parentComment.thread,
+    });
   } catch (error) {
     dispatch({
       type: actionTypes.REPLY_TO_COMMENT_FAILURE,

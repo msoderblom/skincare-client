@@ -83,6 +83,21 @@ const commentsReducer = (state = initState, action) => {
         ...state,
         comments: [...state.comments, action.payload],
       };
+    case actionTypes.UPDATE_PARENT_COMMENT:
+      console.log("Payload inside update parent: ", action.payload);
+
+      const updatedComments = state.comments.map((comment) =>
+        comment._id === action.payload._id ? action.payload : comment
+      );
+
+      console.log("updated comments", updatedComments);
+      return {
+        ...state,
+        comments: updatedComments,
+      };
+    // return {
+    //   ...state,
+    // };
 
     default:
       return state;
