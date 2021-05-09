@@ -57,6 +57,46 @@ const CommentsSection = ({ threadID }) => {
     reset();
   };
 
+  const renderLevel2Comments = (commentIDs) => {
+    return (
+      <div style={{ borderTop: "1px solid #a3a3a429", paddingTop: 20 }}>
+        <S.CommentsList>
+          {commentIDs.map((commentL2ID) => {
+            const commentL2 = comments.find(
+              (comment) => comment._id === commentL2ID
+            );
+
+            return (
+              <li key={commentL2._id} style={{ marginLeft: 55 }}>
+                <Comment comment={commentL2} />
+                {commentL2.children.length > 0 &&
+                  renderLevel3Comments(commentL2.children)}
+              </li>
+            );
+          })}
+        </S.CommentsList>
+      </div>
+    );
+  };
+
+  const renderLevel3Comments = (commentIDs) => {
+    return (
+      <div style={{ borderTop: "1px solid #a3a3a429", paddingTop: 20 }}>
+        <S.CommentsList>
+          {commentIDs.map((commentL3ID) => {
+            const commentL3 = comments.find(
+              (comment) => comment._id === commentL3ID
+            );
+            return (
+              <li key={commentL3._id} style={{ marginLeft: 55 }}>
+                <Comment comment={commentL3} />
+              </li>
+            );
+          })}
+        </S.CommentsList>
+      </div>
+    );
+  };
   return (
     <S.Container>
       {user ? (
@@ -93,40 +133,7 @@ const CommentsSection = ({ threadID }) => {
               return (
                 <S.CommentGroup key={comment._id}>
                   <Comment comment={comment} />
-                  {children.length > 0 && (
-                    <div>
-                      <ul>
-                        {children.map((commentL2ID) => {
-                          const commentL2 = comments.find(
-                            (comment) => comment._id === commentL2ID
-                          );
-
-                          return (
-                            <li key={commentL2._id}>
-                              <Comment comment={commentL2} />
-                              {commentL2.children.length > 0 && (
-                                <div>
-                                  <ul>
-                                    {commentL2.children.map((commentL3ID) => {
-                                      const commentL3 = comments.find(
-                                        (comment) => comment._id === commentL3ID
-                                      );
-                                      return (
-                                        <li key={commentL3._id}>
-                                          {" "}
-                                          <Comment comment={commentL3} />
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </div>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  )}
+                  {children.length > 0 && renderLevel2Comments(children)}
                 </S.CommentGroup>
               );
             })}
