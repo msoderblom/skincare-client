@@ -11,6 +11,7 @@ import io from "socket.io-client";
 import createCommentSchema from "../../../../../validation/createCommentSchema";
 import Button from "../../../../../components/Button";
 import { HiHeart } from "react-icons/hi";
+import Comment from "../../../../../components/Comment";
 
 let socket;
 const CommentsSection = ({ threadID }) => {
@@ -84,20 +85,51 @@ const CommentsSection = ({ threadID }) => {
       <S.Title>Comments</S.Title>
       {comments.length > 0 && (
         <S.CommentsList>
-          {[...comments].reverse().map((comment) => (
-            <S.Comment key={comment._id}>
-              <S.Avatar />
-              <S.Info>
-                <S.Username>{comment.author?.username}</S.Username>
-                <S.Created fromNow>{comment.createdAt}</S.Created>
-              </S.Info>
-              <S.Content>{comment.content}</S.Content>
-              <S.Likes>
-                <HiHeart size="1.2em" />
-                <span>{comment.likes.length}</span>
-              </S.Likes>
-            </S.Comment>
-          ))}
+          {[...comments]
+            .filter((comment) => comment.level === 1)
+            .reverse()
+            .map((comment) => {
+              const children = comment.children;
+              return (
+                <S.CommentGroup key={comment._id}>
+                  <Comment comment={comment} />
+                  {children.length > 0 && (
+                    <div>
+                      <ul>
+                        {children.map((commentL2ID) => {
+                          const commentL2 = comments.find(
+                            (comment) => comment._id === commentL2ID
+                          );
+
+                          return (
+                            <li key={commentL2._id}>
+                              <Comment comment={commentL2} />
+                              {commentL2.children.length > 0 && (
+                                <div>
+                                  <ul>
+                                    {commentL2.children.map((commentL3ID) => {
+                                      const commentL3 = comments.find(
+                                        (comment) => comment._id === commentL3ID
+                                      );
+                                      return (
+                                        <li key={commentL3._id}>
+                                          {" "}
+                                          <Comment comment={commentL3} />
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </S.CommentGroup>
+              );
+            })}
         </S.CommentsList>
       )}
 
