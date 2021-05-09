@@ -23,7 +23,8 @@ const Comment = ({ comment, socket }) => {
     console.log("data", data);
 
     dispatch(commentActions.replyToComment(data, comment, socket));
-    // reset();
+    reset();
+    setShowReplyBox(false);
   };
 
   return (
