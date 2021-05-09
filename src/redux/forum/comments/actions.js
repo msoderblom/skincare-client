@@ -25,6 +25,32 @@ export const createComment = (formData, threadID, socket, history) => async (
   }
 };
 
+export const replyToComment = (formData, parentComment, socket) => async (
+  dispatch
+) => {
+  dispatch({ type: actionTypes.REPLY_TO_COMMENT_REQUEST });
+
+  try {
+    const {
+      data: { comment, updatedParentComment },
+    } = await api.replyToComment(
+      formData,
+      parentComment.thread,
+      parentComment._id
+    );
+
+    dispatch({ type: actionTypes.REPLY_TO_COMMENT_SUCCESS, payload: comment });
+    // socket.emit("new-comment", { comment, threadID });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.REPLY_TO_COMMENT_FAILURE,
+      error: error.response.data?.error || error.message,
+    });
+    console.error(error);
+    console.log(error.response.data.error);
+  }
+};
+
 export const getComments = (threadID, history) => async (dispatch) => {
   dispatch({ type: actionTypes.GET_COMMENTS_REQUEST });
 

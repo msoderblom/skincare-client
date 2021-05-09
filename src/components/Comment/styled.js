@@ -62,6 +62,11 @@ export const Content = styled.p`
   grid-row: 2/3;
 `;
 
+export const Footer = styled.div`
+  grid-column: 2/3;
+  grid-row: 3/4;
+`;
+
 export const Likes = styled.div`
   display: flex;
   flex-direction: row;
@@ -69,8 +74,7 @@ export const Likes = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
-  grid-column: 2/3;
-  grid-row: 3/4;
+
   /*  align-self: flex-end;
   justify-self: flex-end; */
 
@@ -78,4 +82,9 @@ export const Likes = styled.div`
     margin-top: 1.5px;
     margin-left: 2px;
   }
+`;
+
+export const ReplyBox = styled.div`
+  grid-column: 2/4;
+  grid-row: 4/5;
 `;

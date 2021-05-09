@@ -10,7 +10,6 @@ import * as S from "./styled";
 import io from "socket.io-client";
 import createCommentSchema from "../../../../../validation/createCommentSchema";
 import Button from "../../../../../components/Button";
-import { HiHeart } from "react-icons/hi";
 import Comment from "../../../../../components/Comment";
 
 let socket;
@@ -68,7 +67,7 @@ const CommentsSection = ({ threadID }) => {
 
             return (
               <li key={commentL2._id} style={{ marginLeft: 55 }}>
-                <Comment comment={commentL2} />
+                <Comment comment={commentL2} socket={socket} />
                 {commentL2.children.length > 0 &&
                   renderLevel3Comments(commentL2.children)}
               </li>
@@ -97,6 +96,7 @@ const CommentsSection = ({ threadID }) => {
       </div>
     );
   };
+
   return (
     <S.Container>
       {user ? (
@@ -132,7 +132,7 @@ const CommentsSection = ({ threadID }) => {
               const children = comment.children;
               return (
                 <S.CommentGroup key={comment._id}>
-                  <Comment comment={comment} />
+                  <Comment comment={comment} socket={socket} />
                   {children.length > 0 && renderLevel2Comments(children)}
                 </S.CommentGroup>
               );

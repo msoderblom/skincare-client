@@ -5,6 +5,7 @@ const initState = {
   createdComment: null,
   loading: false,
   createCommentError: null,
+  replyToCommentError: null,
   getCommentsError: null,
 };
 
@@ -30,6 +31,28 @@ const commentsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         createCommentError: action.error,
+      };
+
+    // REPLY TO COMMENT
+    case actionTypes.REPLY_TO_COMMENT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        replyToCommentError: null,
+      };
+    case actionTypes.REPLY_TO_COMMENT_SUCCESS:
+      console.log("Payload in reducer", action.payload);
+
+      return {
+        ...state,
+        loading: false,
+      };
+    case actionTypes.REPLY_TO_COMMENT_FAILURE:
+      console.log("error from reducer: ", action.error);
+      return {
+        ...state,
+        loading: false,
+        replyToCommentError: action.error,
       };
 
     // GET COMMENTS
