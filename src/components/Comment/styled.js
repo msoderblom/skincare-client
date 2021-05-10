@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Moment from "react-moment";
 
 export const Container = styled.div``;
@@ -7,10 +7,18 @@ export const Comment = styled.div`
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto auto auto auto;
-  column-gap: 20px;
+  column-gap: 10px;
   row-gap: 8px;
-
   padding-bottom: 15px;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    column-gap: 20px;
+  }
+`;
+
+const avatarLevel2 = css`
+  width: 30px;
+  height: 30px;
 `;
 
 export const Avatar = styled.div`
@@ -21,6 +29,8 @@ export const Avatar = styled.div`
 
   grid-column: 1/2;
   grid-row: 1/3;
+
+  ${({ level }) => level > 1 && avatarLevel2}
 `;
 
 export const Info = styled.div`
@@ -29,7 +39,6 @@ export const Info = styled.div`
   color: rgba(0, 0, 0, 0.7);
   font-family: "Poppins", sans-serif;
   font-style: normal;
-
   grid-column: 2/3;
   grid-row: 1/2;
 `;
@@ -65,6 +74,7 @@ export const Content = styled.p`
 export const Footer = styled.div`
   grid-column: 2/3;
   grid-row: 3/4;
+  display: flex;
 `;
 
 export const Likes = styled.div`
@@ -74,9 +84,7 @@ export const Likes = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
-
-  /*  align-self: flex-end;
-  justify-self: flex-end; */
+  margin-right: 15px;
 
   span {
     margin-top: 1.5px;
@@ -84,7 +92,34 @@ export const Likes = styled.div`
   }
 `;
 
+export const ReplyBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "IBM Plex Sans";
+  font-size: 15px;
+  color: #9582df;
+  padding: 5px;
+
+  &:hover {
+    color: #b6a9e9;
+  }
+`;
+
 export const ReplyBox = styled.div`
-  grid-column: 2/4;
+  grid-column: 1/4;
   grid-row: 4/5;
+`;
+
+export const ReplyForm = styled.form`
+  display: grid;
+
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+  align-items: center;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    grid-template-columns: 1fr auto;
+    column-gap: 10px;
+  }
 `;

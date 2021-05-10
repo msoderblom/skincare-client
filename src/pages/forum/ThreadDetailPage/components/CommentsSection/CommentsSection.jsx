@@ -74,11 +74,11 @@ const CommentsSection = ({ threadID }) => {
             );
 
             return (
-              <li key={commentL2._id} style={{ marginLeft: 55 }}>
+              <S.ReplyListItem2 key={commentL2._id}>
                 <Comment comment={commentL2} socket={socket} />
                 {commentL2.children.length > 0 &&
                   renderLevel3Comments(commentL2.children)}
-              </li>
+              </S.ReplyListItem2>
             );
           })}
         </S.CommentsList>
@@ -95,9 +95,9 @@ const CommentsSection = ({ threadID }) => {
               (comment) => comment._id === commentL3ID
             );
             return (
-              <li key={commentL3._id} style={{ marginLeft: 55 }}>
+              <S.ReplyListItem3 key={commentL3._id}>
                 <Comment comment={commentL3} />
-              </li>
+              </S.ReplyListItem3>
             );
           })}
         </S.CommentsList>

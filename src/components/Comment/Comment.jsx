@@ -29,7 +29,7 @@ const Comment = ({ comment, socket }) => {
 
   return (
     <S.Comment>
-      <S.Avatar />
+      <S.Avatar level={comment.level} />
       <S.Info>
         <S.Username>{comment.author?.username}</S.Username>
         <S.Created fromNow>{comment.createdAt}</S.Created>
@@ -41,14 +41,14 @@ const Comment = ({ comment, socket }) => {
           <span>{comment.likes.length}</span>
         </S.Likes>
         {user && comment.level < 3 && (
-          <span role="button" onClick={() => setShowReplyBox((prev) => !prev)}>
-            Reply
-          </span>
+          <S.ReplyBtn onClick={() => setShowReplyBox((prev) => !prev)}>
+            {showReplyBox ? "Cancel" : "Reply"}
+          </S.ReplyBtn>
         )}
       </S.Footer>
       {showReplyBox && (
         <S.ReplyBox>
-          <form onSubmit={handleSubmit(handleReplyToComment)}>
+          <S.ReplyForm onSubmit={handleSubmit(handleReplyToComment)}>
             <Input
               name="content"
               label={`Reply to ${comment.author.username}`}
@@ -58,10 +58,9 @@ const Comment = ({ comment, socket }) => {
               helperText={errors.content?.message}
               errors={errors.content}
             />
-
             <Button type="submit" title="Reply" />
             {replyToCommentError && <span>{replyToCommentError}</span>}
-          </form>
+          </S.ReplyForm>
         </S.ReplyBox>
       )}
     </S.Comment>

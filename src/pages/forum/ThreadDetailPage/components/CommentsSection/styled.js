@@ -27,6 +27,7 @@ export const CommentBox = styled.form`
 
   display: grid;
   grid-template-columns: 1fr;
+  align-items: center;
   row-gap: 15px;
   h3 {
     margin: 0;
@@ -57,12 +58,18 @@ export const CommentsList = styled.ul`
   }
 `;
 
-export const CommentGroup = styled.li`
-  /* display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-template-rows: auto auto auto auto;
-  column-gap: 20px;
-  row-gap: 8px;
+export const CommentGroup = styled.li``;
+export const ReplyListItem2 = styled.li`
+  margin-left: 45px;
 
-  padding-bottom: 15px; */
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    margin-left: 55px;
+  }
+`;
+export const ReplyListItem3 = styled.li`
+  margin-left: 40px;
+
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    margin-left: 55px;
+  }
 `;
