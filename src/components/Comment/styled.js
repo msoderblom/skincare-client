@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
 import Moment from "react-moment";
 
-export const Container = styled.div``;
-
 export const Comment = styled.div`
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -26,7 +24,6 @@ export const Avatar = styled.div`
   background: #c4c4c4;
   width: 40px;
   height: 40px;
-
   grid-column: 1/2;
   grid-row: 1/3;
 
@@ -113,7 +110,6 @@ export const ReplyBox = styled.div`
 
 export const ReplyForm = styled.form`
   display: grid;
-
   grid-template-columns: 1fr;
   row-gap: 10px;
   align-items: center;

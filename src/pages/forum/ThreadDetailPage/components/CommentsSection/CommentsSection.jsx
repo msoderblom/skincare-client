@@ -42,17 +42,10 @@ const CommentsSection = ({ threadID }) => {
   }, []);
 
   useEffect(() => {
-    console.log("Inside useEffect with socket.on");
-    console.log("listen on new-comment");
     socket.on("new-comment", (comment) => {
-      console.log("new comment incoming");
-      // dispatch(commentActions.getComments(threadID));
       dispatch({ type: commentTypes.UPDATE_COMMENTS, payload: comment });
     });
     socket.on("new-reply", ({ comment, parent }) => {
-      console.log("in-new-reply");
-      // console.log("comment", comment);
-      // console.log("parent", parent);
       dispatch({ type: commentTypes.UPDATE_COMMENTS, payload: comment });
       dispatch({ type: commentTypes.UPDATE_PARENT_COMMENT, payload: parent });
     });

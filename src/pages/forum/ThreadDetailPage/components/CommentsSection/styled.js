@@ -13,6 +13,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   margin-top: 0;
 `;
+
 export const NotSignedInContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
@@ -22,6 +23,7 @@ export const NotSignedInContainer = styled.div`
     place-self: center end;
   }
 `;
+
 export const CommentBox = styled.form`
   margin-bottom: 10px;
 
@@ -41,6 +43,7 @@ export const CommentBox = styled.form`
     }
   }
 `;
+
 export const CommentField = styled(Input)`
   margin-bottom: 10px;
 `;
@@ -59,6 +62,7 @@ export const CommentsList = styled.ul`
 `;
 
 export const CommentGroup = styled.li``;
+
 export const ReplyListItem2 = styled.li`
   margin-left: 45px;
 
@@ -66,6 +70,7 @@ export const ReplyListItem2 = styled.li`
     margin-left: 55px;
   }
 `;
+
 export const ReplyListItem3 = styled.li`
   margin-left: 40px;
 
