@@ -37,6 +37,7 @@ const CommentsSection = ({ threadID }) => {
     return () => {
       //  turn off socket if user leaves the comments section
       socket.off();
+      dispatch({ type: commentTypes.GET_COMMENTS_SUCCESS, payload: null });
     };
     // eslint-disable-next-line
   }, []);
@@ -124,7 +125,7 @@ const CommentsSection = ({ threadID }) => {
         </S.NotSignedInContainer>
       )}
       <S.Title>Comments</S.Title>
-      {comments.length > 0 && (
+      {comments?.length > 0 && (
         <S.CommentsList>
           {[...comments]
             .filter((comment) => comment.level === 1)
@@ -140,6 +141,7 @@ const CommentsSection = ({ threadID }) => {
             })}
         </S.CommentsList>
       )}
+      {comments?.length === 0 && <span>No comments on this thread yet</span>}
 
       {getCommentsError && <span>{getCommentsError}</span>}
     </S.Container>
