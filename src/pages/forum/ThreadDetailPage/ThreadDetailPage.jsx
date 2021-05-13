@@ -62,10 +62,17 @@ const ThreadDetailPage = () => {
         payload: { ...threadFromRedux },
       });
     } else {
-      console.log("Getting thread from api");
-      dispatch(threadActions.getOneThread(id));
+      if (!thread) {
+        console.log("Getting thread from api");
+        dispatch(threadActions.getOneThread(id));
+      }
     }
-  }, [dispatch, id, threads]);
+    // eslint-disable-next-line
+  }, [id, threads]);
+
+  useEffect(() => {
+    setThreadLikes(thread?.likes);
+  }, [thread]);
 
   useEffect(() => {
     setThreadLikes(thread?.likes);
