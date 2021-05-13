@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styled";
-import { HiHeart } from "react-icons/hi";
+import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import Button from "../Button";
 import createCommentSchema from "../../validation/createCommentSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -27,6 +27,31 @@ const Comment = ({ comment, socket }) => {
     setShowReplyBox(false);
   };
 
+  const handleLikeComment = () => {
+    if (!user) return;
+    dispatch(commentActions.likeComment(comment._id));
+  };
+
+  const Likes = () => {
+    if (comment.likes.length > 0) {
+      // checks if the logged in user likes this comment
+      if (comment.likes.find((like) => like === user?._id)) {
+        return (
+          <S.Likes onClick={handleLikeComment}>
+            <HiHeart size="1.2em" />
+            <span>&nbsp;{comment.likes.length}</span>
+          </S.Likes>
+        );
+      }
+    }
+    return (
+      <S.Likes onClick={handleLikeComment}>
+        <HiOutlineHeart size="1.2em" />
+        <span>&nbsp;{comment.likes.length}</span>
+      </S.Likes>
+    );
+  };
+
   return (
     <S.Comment>
       <S.Avatar level={comment.level} />
@@ -36,10 +61,7 @@ const Comment = ({ comment, socket }) => {
       </S.Info>
       <S.Content>{comment.content}</S.Content>
       <S.Footer>
-        <S.Likes>
-          <HiHeart size="1.2em" />
-          <span>{comment.likes.length}</span>
-        </S.Likes>
+        {comment.likes && <Likes />}
         {user && comment.level < 3 && (
           <S.ReplyBtn onClick={() => setShowReplyBox((prev) => !prev)}>
             {showReplyBox ? "Cancel" : "Reply"}

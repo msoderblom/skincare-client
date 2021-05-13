@@ -26,7 +26,7 @@ const ThreadPreview = ({ thread }) => {
 
   const Likes = () => {
     if (threadLikes.length > 0) {
-      // checks if the logged in user likes this post
+      // checks if the logged in user likes this thread
       if (threadLikes.find((like) => like === user?._id)) {
         return (
           <S.Likes onClick={handleLikeThread}>

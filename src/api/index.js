@@ -41,6 +41,8 @@ export const createComment = (formData, threadID) =>
   API.post(`/forum/threads/${threadID}/comments`, formData);
 export const replyToComment = (formData, threadID, parentID) =>
   API.post(`/forum/threads/${threadID}/comments/${parentID}`, formData);
+export const likeComment = (id) =>
+  API.patch(`/forum/threads/comments/${id}/like`);
 
 // Skinfluencers
 export const getSkinfluencers = () => API.get(`/skinfluencers`);

@@ -7,6 +7,7 @@ const initState = {
   createCommentError: null,
   replyToCommentError: null,
   getCommentsError: null,
+  likeCommentError: null,
 };
 
 const commentsReducer = (state = initState, action) => {
@@ -77,6 +78,34 @@ const commentsReducer = (state = initState, action) => {
         loading: false,
         getCommentsError: action.error,
       };
+
+    // LIKE COMMENT
+    case actionTypes.LIKE_COMMENT_REQUEST:
+      return {
+        ...state,
+        likeCommentError: null,
+      };
+    case actionTypes.LIKE_COMMENT_SUCCESS:
+      console.log("Payload in reducer", action.payload);
+
+      return {
+        ...state,
+        loading: false,
+        comments: state.comments.map((comment) =>
+          comment._id === action.payload._id
+            ? { ...comment, ...action.payload }
+            : comment
+        ),
+      };
+    case actionTypes.LIKE_COMMENT_FAILURE:
+      console.log("error from reducer: ", action.error);
+      return {
+        ...state,
+        loading: false,
+        likeCommentError: action.error,
+      };
+
+    // UPDATE
     case actionTypes.UPDATE_COMMENTS:
       console.log("Payload inside update comments: ", action.payload);
       return {
@@ -95,9 +124,6 @@ const commentsReducer = (state = initState, action) => {
         ...state,
         comments: updatedComments,
       };
-    // return {
-    //   ...state,
-    // };
 
     default:
       return state;
