@@ -87,7 +87,6 @@ const threadsReducer = (state = initState, action) => {
     case actionTypes.LIKE_THREAD_REQUEST:
       return {
         ...state,
-        loading: true,
         likeThreadError: null,
       };
     case actionTypes.LIKE_THREAD_SUCCESS:
@@ -97,7 +96,9 @@ const threadsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         threads: state.threads.map((thread) =>
-          thread._id === action.payload._id ? action.payload : thread
+          thread._id === action.payload._id
+            ? { ...thread, ...action.payload }
+            : thread
         ),
       };
     case actionTypes.LIKE_THREAD_FAILURE:
