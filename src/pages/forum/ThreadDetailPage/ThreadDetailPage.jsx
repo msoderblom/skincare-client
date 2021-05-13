@@ -1,5 +1,5 @@
 import { CircularProgress } from "@material-ui/core";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -19,19 +19,27 @@ const ThreadDetailPage = () => {
 
   const { user } = useSelector((state) => state.user);
 
+  const [threadLikes, setThreadLikes] = useState([]);
+
   const handleLikeThread = () => {
     if (!user) return;
     dispatch(threadActions.likeThread(thread._id));
+
+    if (threadLikes.find((like) => like === user?._id)) {
+      setThreadLikes((prev) => prev.filter((id) => id !== user._id));
+    } else {
+      setThreadLikes((prev) => [...prev, user._id]);
+    }
   };
 
   const Likes = () => {
-    if (thread.likes.length > 0) {
+    if (threadLikes?.length > 0) {
       // checks if the logged in user likes this post
-      if (thread.likes.find((like) => like === user?._id)) {
+      if (threadLikes.find((like) => like === user?._id)) {
         return (
           <S.Likes onClick={handleLikeThread}>
             <HiHeart size="1.2em" />
-            <span>&nbsp;{thread.likes.length}</span>
+            <span>&nbsp;{threadLikes?.length}</span>
           </S.Likes>
         );
       }
@@ -39,7 +47,7 @@ const ThreadDetailPage = () => {
     return (
       <S.Likes onClick={handleLikeThread}>
         <HiOutlineHeart size="1.2em" />
-        <span>&nbsp;{thread.likes.length}</span>
+        <span>&nbsp;{threadLikes?.length}</span>
       </S.Likes>
     );
   };
@@ -59,6 +67,10 @@ const ThreadDetailPage = () => {
     }
   }, [dispatch, id, threads]);
 
+  useEffect(() => {
+    setThreadLikes(thread?.likes);
+  }, [thread]);
+
   return (
     <S.Container>
       {loading && <CircularProgress />}
@@ -75,7 +87,7 @@ const ThreadDetailPage = () => {
             <S.Title>{thread.title}</S.Title>
           </S.Header>
           <S.Body>{thread.body}</S.Body>
-          <Likes />
+          {threadLikes && <Likes />}
         </S.ThreadContent>
       )}
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
 import { HiOutlineHeart, HiHeart } from "react-icons/hi";
@@ -11,19 +11,27 @@ const ThreadPreview = ({ thread }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
+  const [threadLikes, setThreadLikes] = useState(thread.likes);
+
   const handleLikeThread = () => {
     if (!user) return;
     dispatch(threadActions.likeThread(thread._id));
+
+    if (threadLikes.find((like) => like === user?._id)) {
+      setThreadLikes((prev) => prev.filter((id) => id !== user._id));
+    } else {
+      setThreadLikes((prev) => [...prev, user._id]);
+    }
   };
 
   const Likes = () => {
-    if (thread.likes.length > 0) {
+    if (threadLikes.length > 0) {
       // checks if the logged in user likes this post
-      if (thread.likes.find((like) => like === user?._id)) {
+      if (threadLikes.find((like) => like === user?._id)) {
         return (
           <S.Likes onClick={handleLikeThread}>
             <HiHeart size="1.2em" />
-            <span>&nbsp;{thread.likes.length}</span>
+            <span>&nbsp;{threadLikes.length}</span>
           </S.Likes>
         );
       }
@@ -31,7 +39,7 @@ const ThreadPreview = ({ thread }) => {
     return (
       <S.Likes onClick={handleLikeThread}>
         <HiOutlineHeart size="1.2em" />
-        <span>&nbsp;{thread.likes.length}</span>
+        <span>&nbsp;{threadLikes.length}</span>
       </S.Likes>
     );
   };
