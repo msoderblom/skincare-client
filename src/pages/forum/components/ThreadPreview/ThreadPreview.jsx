@@ -1,13 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
-import {
-  /*  HiOutlineThumbUp, HiOutlineHeart, */ HiHeart,
-} from "react-icons/hi";
+import { HiOutlineHeart, HiHeart } from "react-icons/hi";
 import { FaComment } from "react-icons/fa";
 import "moment-timezone";
+import { useDispatch, useSelector } from "react-redux";
+import { threadActions } from "../../../../redux/forum/threads";
 
 const ThreadPreview = ({ thread }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+
+  const handleLikeThread = () => {
+    if (!user) return;
+    dispatch(threadActions.likeThread(thread._id));
+  };
+
+  const Likes = () => {
+    if (thread.likes.length > 0) {
+      // checks if the logged in user likes this post
+      if (thread.likes.find((like) => like === user?._id)) {
+        return (
+          <S.Likes onClick={handleLikeThread}>
+            <HiHeart size="1.2em" />
+            <span>&nbsp;{thread.likes.length}</span>
+          </S.Likes>
+        );
+      }
+    }
+    return (
+      <S.Likes onClick={handleLikeThread}>
+        <HiOutlineHeart size="1.2em" />
+        <span>&nbsp;{thread.likes.length}</span>
+      </S.Likes>
+    );
+  };
+
   return (
     <S.Container>
       <Link
@@ -16,7 +44,11 @@ const ThreadPreview = ({ thread }) => {
       >
         <S.Title>{thread.title}</S.Title>
       </Link>
-      <S.Body>{thread.body}</S.Body>
+      <S.Body>
+        {thread.body.length > 99
+          ? thread.body.slice(0, 99) + "..."
+          : thread.body}
+      </S.Body>
       <S.Footer>
         <S.AuthorDetails>
           <S.Avatar />
@@ -25,14 +57,10 @@ const ThreadPreview = ({ thread }) => {
             <S.Created fromNow>{thread.createdAt}</S.Created>
           </S.Username>
         </S.AuthorDetails>
-
-        <S.Likes>
-          <HiHeart size="1.2em" />
-          <span>{thread.likes.length}</span>
-        </S.Likes>
+        <Likes />
         <S.Comments>
           <FaComment size="1em" />
-          <span>{thread.commentsCount}</span>
+          <span>&nbsp;{thread.commentsCount}</span>
         </S.Comments>
       </S.Footer>
     </S.Container>

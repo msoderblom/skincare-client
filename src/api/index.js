@@ -32,6 +32,7 @@ export const getThreads = (queryParams) =>
   API.get(`/forum/threads${queryParams}`);
 export const createThread = (formData) => API.post("/forum/threads", formData);
 export const getOneThread = (id) => API.get(`/forum/threads/${id}`);
+export const likeThread = (id) => API.patch(`/forum/threads/${id}/like`);
 
 // Thread comments
 export const getThreadComments = (threadID) =>

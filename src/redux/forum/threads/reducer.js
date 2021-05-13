@@ -9,6 +9,7 @@ const initState = {
   createThreadError: null,
   getThreadsError: null,
   getOneThreadError: null,
+  likeThreadError: null,
 };
 
 const threadsReducer = (state = initState, action) => {
@@ -80,6 +81,31 @@ const threadsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         getOneThreadError: action.error,
+      };
+
+    // LIKE THREAD
+    case actionTypes.LIKE_THREAD_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        likeThreadError: null,
+      };
+    case actionTypes.LIKE_THREAD_SUCCESS:
+      console.log("Payload in reducer", action.payload);
+
+      return {
+        ...state,
+        loading: false,
+        threads: state.threads.map((thread) =>
+          thread._id === action.payload._id ? action.payload : thread
+        ),
+      };
+    case actionTypes.LIKE_THREAD_FAILURE:
+      console.log("error from reducer: ", action.error);
+      return {
+        ...state,
+        loading: false,
+        likeThreadError: action.error,
       };
 
     default:

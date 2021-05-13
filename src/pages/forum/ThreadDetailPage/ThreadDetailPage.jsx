@@ -1,6 +1,6 @@
 import { CircularProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
-import { HiHeart } from "react-icons/hi";
+import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { threadActions, threadTypes } from "../../../redux/forum/threads";
@@ -16,6 +16,33 @@ const ThreadDetailPage = () => {
     getOneThreadError,
     loading,
   } = useSelector((state) => state.forum.threads);
+
+  const { user } = useSelector((state) => state.user);
+
+  const handleLikeThread = () => {
+    if (!user) return;
+    dispatch(threadActions.likeThread(thread._id));
+  };
+
+  const Likes = () => {
+    if (thread.likes.length > 0) {
+      // checks if the logged in user likes this post
+      if (thread.likes.find((like) => like === user?._id)) {
+        return (
+          <S.Likes onClick={handleLikeThread}>
+            <HiHeart size="1.2em" />
+            <span>&nbsp;{thread.likes.length}</span>
+          </S.Likes>
+        );
+      }
+    }
+    return (
+      <S.Likes onClick={handleLikeThread}>
+        <HiOutlineHeart size="1.2em" />
+        <span>&nbsp;{thread.likes.length}</span>
+      </S.Likes>
+    );
+  };
 
   useEffect(() => {
     const threadFromRedux = threads.find((thread) => thread._id === id);
@@ -48,10 +75,7 @@ const ThreadDetailPage = () => {
             <S.Title>{thread.title}</S.Title>
           </S.Header>
           <S.Body>{thread.body}</S.Body>
-          <S.Likes>
-            <HiHeart size="1.2em" />
-            <span>{thread.likes.length}</span>
-          </S.Likes>
+          <Likes />
         </S.ThreadContent>
       )}
 

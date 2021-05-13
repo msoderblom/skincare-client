@@ -80,6 +80,7 @@ export const Created = styled(Moment)`
 `;
 
 export const Likes = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -89,13 +90,14 @@ export const Likes = styled.div`
 
   span {
     margin-top: 1.5px;
-    margin-left: 2px;
+    /* margin-left: 2px; */
   }
 `;
 
 export const Comments = styled(Likes)`
+  cursor: default;
   span {
     margin-top: 0;
-    margin-left: 3px;
+    /* margin-left: 3px; */
   }
 `;

@@ -99,6 +99,7 @@ export const Body = styled.p`
 `;
 
 export const Likes = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -112,6 +113,6 @@ export const Likes = styled.div`
 
   span {
     margin-top: 1.5px;
-    margin-left: 2px;
+    /* margin-left: 2px; */
   }
 `;

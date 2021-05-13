@@ -26,31 +26,33 @@ export const createThread = (formData, history) => async (dispatch) => {
     console.log(error?.response?.data?.error);
   }
 };
-export const getThreads = (queryParams = "", history) => async (dispatch) => {
-  dispatch({ type: actionTypes.GET_THREADS_REQUEST });
+export const getThreads =
+  (queryParams = "", history) =>
+  async (dispatch) => {
+    dispatch({ type: actionTypes.GET_THREADS_REQUEST });
 
-  try {
-    const {
-      data: { threads, pages: totalPages },
-    } = await api.getThreads(queryParams);
+    try {
+      const {
+        data: { threads, pages: totalPages },
+      } = await api.getThreads(queryParams);
 
-    const payload = {
-      threads,
-      totalPages,
-    };
+      const payload = {
+        threads,
+        totalPages,
+      };
 
-    dispatch({ type: actionTypes.GET_THREADS_SUCCESS, payload });
+      dispatch({ type: actionTypes.GET_THREADS_SUCCESS, payload });
 
-    // history.push("/");
-  } catch (error) {
-    dispatch({
-      type: actionTypes.GET_THREADS_FAILURE,
-      error: error?.response?.data?.error || error.message,
-    });
-    console.error(error);
-    console.log(error?.response?.data?.error);
-  }
-};
+      // history.push("/");
+    } catch (error) {
+      dispatch({
+        type: actionTypes.GET_THREADS_FAILURE,
+        error: error?.response?.data?.error || error.message,
+      });
+      console.error(error);
+      console.log(error?.response?.data?.error);
+    }
+  };
 export const getOneThread = (id, history) => async (dispatch) => {
   dispatch({ type: actionTypes.GET_ONE_THREAD_REQUEST });
 
@@ -65,9 +67,28 @@ export const getOneThread = (id, history) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: actionTypes.GET_ONE_THREAD_FAILURE,
-      error: error.response.data?.error || error.message,
+      error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
+    console.log(error?.response?.data?.error);
+  }
+};
+
+export const likeThread = (id) => async (dispatch) => {
+  dispatch({ type: actionTypes.LIKE_THREAD_REQUEST });
+
+  try {
+    const {
+      data: { updatedThread },
+    } = await api.likeThread(id);
+
+    dispatch({ type: actionTypes.LIKE_THREAD_SUCCESS, payload: updatedThread });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.LIKE_THREAD_FAILURE,
+      error: error?.response?.data?.error || error?.message,
+    });
+    console.error(error);
+    console.log(error?.response?.data?.error);
   }
 };
