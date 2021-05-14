@@ -41,3 +41,16 @@ export const GoToSignUp = styled.button`
   }
 `;
 export const GoToSignIn = styled(GoToSignUp)``;
+
+export const GoToStartPage = styled(GoToSignUp)``;
+
+export const Title = styled.h3`
+  font-family: "Playfair Display";
+  font-weight: 900;
+  font-size: 25px;
+  margin: 0 0 15px 0;
+  color: #e5bbcc;
+  @media (min-width: ${({ theme }) => theme.tablet}) {
+    font-size: 30px;
+  }
+`;

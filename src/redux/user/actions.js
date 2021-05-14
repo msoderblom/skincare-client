@@ -28,7 +28,7 @@ export const signUp = (formData, history) => async (dispatch) => {
   }
 };
 
-export const signIn = (formData, history) => async (dispatch) => {
+export const signIn = (formData) => async (dispatch) => {
   dispatch({ type: actionTypes.SIGN_IN_REQUEST });
 
   try {
@@ -43,8 +43,6 @@ export const signIn = (formData, history) => async (dispatch) => {
     };
 
     dispatch({ type: actionTypes.SIGN_IN_SUCCESS, payload });
-
-    // history.push("/");
   } catch (error) {
     dispatch({
       type: actionTypes.SIGN_IN_FAILURE,
