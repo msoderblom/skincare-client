@@ -16,7 +16,7 @@ export const createThread = (formData, history) => async (dispatch) => {
 
     dispatch({ type: actionTypes.CREATE_THREAD_SUCCESS, payload });
 
-    // history.push("/");
+    history.push(`/forum/thread/${thread._id}`);
   } catch (error) {
     dispatch({
       type: actionTypes.CREATE_THREAD_FAILURE,
