@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
 import { InputAdornment, IconButton } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
@@ -9,12 +9,14 @@ const Input = ({
   handleChange,
   autoFocus,
   type,
-  handleShowPassword,
   error,
   register,
   required,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => setShowPassword((prev) => !prev);
+
   return (
     <S.Input
       {...props}
@@ -26,15 +28,15 @@ const Input = ({
       fullWidth
       helperText={error}
       autoFocus={autoFocus}
-      type={type}
+      type={type === "password" && showPassword ? "text" : type}
       inputRef={register}
       InputProps={
-        name === "password"
+        type === "password"
           ? {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={handleShowPassword}>
-                    {type === "password" ? <Visibility /> : <VisibilityOff />}
+                    {!showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
               ),
