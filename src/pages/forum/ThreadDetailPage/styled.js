@@ -87,6 +87,7 @@ export const Title = styled.h2`
 `;
 
 export const Body = styled.p`
+  white-space: pre-wrap;
   font-family: "IBM Plex Sans", sans-serif;
   font-style: normal;
   font-weight: 300;
