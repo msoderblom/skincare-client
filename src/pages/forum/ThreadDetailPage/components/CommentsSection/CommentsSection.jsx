@@ -124,7 +124,7 @@ const CommentsSection = ({ threadID }) => {
           <Button link="/auth" title="Sign In / Sign Up" />
         </S.NotSignedInContainer>
       )}
-      <S.Title>Comments ({comments?.length})</S.Title>
+      <S.Title>Comments{comments && ` (${comments?.length})`}</S.Title>
       {comments?.length > 0 && (
         <S.CommentsList>
           {[...comments]
