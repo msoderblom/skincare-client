@@ -16,6 +16,7 @@ import { useOnClickOutside } from "./hooks";
 import { useDispatch } from "react-redux";
 import { appActions } from "./redux/app";
 import KBeautyPage from "./pages/KBeautyPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const App = () => {
               path="/forum/thread/:id"
               component={ThreadDetailPage}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/forum/create-thread"
               component={CreateThreadPage}

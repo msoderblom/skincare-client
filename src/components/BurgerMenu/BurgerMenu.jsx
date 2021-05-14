@@ -51,6 +51,7 @@ const BurgerMenu = () => {
       <S.Nav>
         {routes.map((route) => (
           <S.NavLink
+            key={route.path}
             to={route.path}
             exact={route.exact}
             onClick={handleLinkClick}
