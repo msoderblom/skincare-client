@@ -16,6 +16,7 @@ import { useOnClickOutside } from "./hooks";
 import { useDispatch } from "react-redux";
 import { appActions } from "./redux/app";
 import KBeautyPage from "./pages/KBeautyPage";
+import HomePage from "./pages/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         </div>
         <main id="page-wrap" style={{ paddingTop: 100, height: "100%" }}>
           <Switch>
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/auth" component={AuthPage} />
             <Route exact path="/skinfluencers" component={SkinfluencersPage} />
             <Route exact path="/k-beauty" component={KBeautyPage} />
