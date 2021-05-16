@@ -32,6 +32,18 @@ export const MainContent = styled.div`
   height: 70%;
   width: 80%;
 
+  p {
+    padding: 5px 0;
+    text-align: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    /* color: rgba(0, 0, 0, 0.7); */
+    color: white;
+  }
+
   @media (min-width: ${({ theme }) => theme.tablet}) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -46,6 +58,11 @@ export const MainContent = styled.div`
 
 export const Info = styled.div`
   ${glassStyles}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 70px;
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
     grid-column: 1/2;
@@ -60,22 +77,6 @@ export const Join = styled.div`
   justify-content: center;
   padding: 0 70px;
 
-  p {
-    padding: 5px 0;
-    text-align: center;
-    font-family: "IBM Plex Sans", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 24px;
-    /* color: rgba(0, 0, 0, 0.7); */
-    color: white;
-  }
-  button {
-    flex-grow: 0;
-    width: fit-content;
-  }
-
   @media (min-width: ${({ theme }) => theme.tablet}) {
     grid-column: 2/3;
     grid-row: 1/2;
@@ -83,8 +84,8 @@ export const Join = styled.div`
 `;
 export const Latest = styled.div`
   ${glassStyles}
-  /* margin-top: 50px; */
-  
+  padding: 0 70px;
+
   @media (min-width: ${({ theme }) => theme.tablet}) {
     grid-column: 1/3;
     grid-row: 2/3;
@@ -96,12 +97,13 @@ export const Title = styled.h3`
   font-weight: 900;
   font-size: 25px;
   margin: 0;
+  /* color: #b6a9e9; */
   /* color: #e5bbcc; */
   color: white;
   /* text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); */
 
   /* color: white; */
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    font-size: 30px;
+    font-size: 35px;
   }
 `;

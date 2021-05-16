@@ -7,18 +7,32 @@ const HomePage = () => {
     <S.Container>
       <S.MainContent>
         <S.Info>
-          <p>HomePage</p>
+          <S.Title>Welcome</S.Title>
+          <p>
+            Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
+            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.
+            Vestibulum rhoncus dui vel eros laoreet consectetur. Vivamus eget
+            elementum ligula,
+          </p>
         </S.Info>
         <S.Join>
           <S.Title>Join our community</S.Title>
           <p>
             Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
-            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.{" "}
+            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.
           </p>
-          <Button title="Sign In / Sign Up" />
+          <Button
+            title="Sign In / Sign Up"
+            link="/auth"
+            linkStyles={{ flexGrow: 0 }}
+          />
         </S.Join>
         <S.Latest>
-          <h1>Latest Blog Post</h1>
+          <S.Title>Check out the most popular thread</S.Title>
+          <p>
+            Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Nam
+            condimentum tempus diam, ultricies sollicitudin erat facilisis eget.
+          </p>
         </S.Latest>
       </S.MainContent>
     </S.Container>
