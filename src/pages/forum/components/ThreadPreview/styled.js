@@ -15,9 +15,17 @@ export const Title = styled.h3`
   font-weight: 900;
   font-size: 25px;
   margin: 0 0 15px 0;
+  max-width: 82vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #e5bbcc;
   @media (min-width: ${({ theme }) => theme.tablet}) {
+    max-width: 40vw;
     font-size: 30px;
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    max-width: 40vw;
   }
 `;
 
