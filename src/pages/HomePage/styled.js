@@ -8,13 +8,11 @@ const glassStyles = css`
   padding: 20px;
   @supports (backdrop-filter: blur(13px)) {
     background-color: rgba(255, 255, 255, 0.17);
-    /* background-color: rgba(255, 255, 255, 0.3); */
     backdrop-filter: blur(13px);
-    /* backdrop-filter: blur(20px); */
   }
 
   @media (min-width: ${({ theme }) => theme.desktop}) {
-    padding: 20px 60px;
+    padding: 40px 60px;
   }
 `;
 
@@ -22,15 +20,12 @@ export const Container = styled.div`
   margin-top: -80px;
   background-image: url(${bgImagePortrait});
   background-attachment: fixed;
-  /* height: 100vh; */
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    margin-top: -100px;
-    height: 100vh;
-    background-attachment: unset;
+    min-height: 100vh;
   }
   @media (min-width: ${({ theme }) => theme.desktop}) {
     background-image: url(${bgImage});
@@ -56,17 +51,12 @@ export const MainContent = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.tablet}) {
-    padding: unset;
-    height: 75%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 30px;
   }
+
   @media (min-width: ${({ theme }) => theme.desktop}) {
-    height: 70%;
-    margin-top: 2%;
-    height: 70%;
-    /* width: 100%; */
     max-width: 1200px;
   }
 `;
