@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 235px;
   padding: 25px 20px;
   ${({ theme }) => theme.cardStyle}
+  overflow-y: hidden;
 
   @media (min-width: ${({ theme }) => theme.desktop}) {
     padding: 25px 45px;
