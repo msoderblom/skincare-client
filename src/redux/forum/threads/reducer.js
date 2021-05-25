@@ -21,15 +21,12 @@ const threadsReducer = (state = initState, action) => {
         createThreadError: null,
       };
     case actionTypes.CREATE_THREAD_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         createdThread: action.payload,
       };
     case actionTypes.CREATE_THREAD_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -44,8 +41,6 @@ const threadsReducer = (state = initState, action) => {
         getThreadsError: null,
       };
     case actionTypes.GET_THREADS_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
@@ -53,7 +48,6 @@ const threadsReducer = (state = initState, action) => {
         totalPages: action.payload.totalPages,
       };
     case actionTypes.GET_THREADS_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -68,15 +62,12 @@ const threadsReducer = (state = initState, action) => {
         getOneThreadError: null,
       };
     case actionTypes.GET_ONE_THREAD_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         viewedThread: action.payload,
       };
     case actionTypes.GET_ONE_THREAD_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -90,8 +81,6 @@ const threadsReducer = (state = initState, action) => {
         likeThreadError: null,
       };
     case actionTypes.LIKE_THREAD_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
@@ -102,7 +91,6 @@ const threadsReducer = (state = initState, action) => {
         ),
       };
     case actionTypes.LIKE_THREAD_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,

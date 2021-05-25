@@ -10,6 +10,7 @@ const initState = {
 
 const userReducer = (state = initState, action) => {
   switch (action.type) {
+    // SIGN UP
     case actionTypes.SIGN_UP_REQUEST:
       return {
         ...state,
@@ -17,20 +18,19 @@ const userReducer = (state = initState, action) => {
         signUpError: null,
       };
     case actionTypes.SIGN_UP_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         signUpData: action.payload,
       };
     case actionTypes.SIGN_UP_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
         signUpError: action.error,
       };
+
+    // SIGN IN
     case actionTypes.SIGN_IN_REQUEST:
       return {
         ...state,
@@ -38,8 +38,6 @@ const userReducer = (state = initState, action) => {
         signInError: null,
       };
     case actionTypes.SIGN_IN_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       localStorage.setItem("profile", JSON.stringify({ ...action?.payload }));
       return {
         ...state,
@@ -47,13 +45,14 @@ const userReducer = (state = initState, action) => {
         user: action?.payload.user,
       };
     case actionTypes.SIGN_IN_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
         signInError: action.error,
         user: null,
       };
+
+    // SIGN OUT
     case actionTypes.SIGN_OUT:
       localStorage.removeItem("profile");
 
@@ -65,6 +64,7 @@ const userReducer = (state = initState, action) => {
         signUpError: null,
         signInError: null,
       };
+
     case actionTypes.SET_USER:
       return {
         ...state,

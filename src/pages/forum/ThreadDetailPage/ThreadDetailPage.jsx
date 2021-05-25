@@ -56,14 +56,12 @@ const ThreadDetailPage = () => {
     const threadFromRedux = threads.find((thread) => thread._id === id);
 
     if (threadFromRedux) {
-      console.log("Getting thread from redux");
       dispatch({
         type: threadTypes.GET_ONE_THREAD_SUCCESS,
         payload: { ...threadFromRedux },
       });
     } else {
       if (!thread) {
-        console.log("Getting thread from api");
         dispatch(threadActions.getOneThread(id));
       }
     }

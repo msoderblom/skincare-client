@@ -1,7 +1,7 @@
 import * as actionTypes from "./types";
 import * as api from "../../api";
 
-export const signUp = (formData, history) => async (dispatch) => {
+export const signUp = (formData) => async (dispatch) => {
   dispatch({ type: actionTypes.SIGN_UP_REQUEST });
 
   try {
@@ -16,15 +16,12 @@ export const signUp = (formData, history) => async (dispatch) => {
     };
 
     dispatch({ type: actionTypes.SIGN_UP_SUCCESS, payload });
-
-    // history.push("/");
   } catch (error) {
     dispatch({
       type: actionTypes.SIGN_UP_FAILURE,
       error: error.response.data?.error || error.message,
     });
     console.error(error);
-    console.log(error.response.data.error);
   }
 };
 
@@ -49,6 +46,5 @@ export const signIn = (formData) => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };

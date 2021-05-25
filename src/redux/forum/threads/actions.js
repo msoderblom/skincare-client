@@ -23,11 +23,11 @@ export const createThread = (formData, history) => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };
+
 export const getThreads =
-  (queryParams = "", history) =>
+  (queryParams = "") =>
   async (dispatch) => {
     dispatch({ type: actionTypes.GET_THREADS_REQUEST });
 
@@ -42,18 +42,16 @@ export const getThreads =
       };
 
       dispatch({ type: actionTypes.GET_THREADS_SUCCESS, payload });
-
-      // history.push("/");
     } catch (error) {
       dispatch({
         type: actionTypes.GET_THREADS_FAILURE,
         error: error?.response?.data?.error || error.message,
       });
       console.error(error);
-      console.log(error?.response?.data?.error);
     }
   };
-export const getOneThread = (id, history) => async (dispatch) => {
+
+export const getOneThread = (id) => async (dispatch) => {
   dispatch({ type: actionTypes.GET_ONE_THREAD_REQUEST });
 
   try {
@@ -70,7 +68,6 @@ export const getOneThread = (id, history) => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };
 
@@ -89,6 +86,5 @@ export const likeThread = (id) => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };

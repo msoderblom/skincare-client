@@ -19,7 +19,6 @@ export const getAllBrands = () => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };
 
@@ -41,6 +40,5 @@ export const getAllResellers = () => async (dispatch) => {
       error: error?.response?.data?.error || error?.message,
     });
     console.error(error);
-    console.log(error?.response?.data?.error);
   }
 };

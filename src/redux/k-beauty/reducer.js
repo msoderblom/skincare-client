@@ -10,6 +10,7 @@ const initState = {
 
 const kBeautyReducer = (state = initState, action) => {
   switch (action.type) {
+    // GET ALL BRANDS
     case actionTypes.GET_ALL_BRANDS_REQUEST:
       return {
         ...state,
@@ -17,15 +18,12 @@ const kBeautyReducer = (state = initState, action) => {
         getAllBrandsError: null,
       };
     case actionTypes.GET_ALL_BRANDS_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         brands: action.payload,
       };
     case actionTypes.GET_ALL_BRANDS_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -40,15 +38,12 @@ const kBeautyReducer = (state = initState, action) => {
         getAllResellersError: null,
       };
     case actionTypes.GET_ALL_RESELLERS_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         resellers: action.payload,
       };
     case actionTypes.GET_ALL_RESELLERS_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,

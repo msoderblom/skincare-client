@@ -20,8 +20,6 @@ const Comment = ({ comment, socket }) => {
   });
 
   const handleReplyToComment = (data) => {
-    console.log("data", data);
-
     dispatch(commentActions.replyToComment(data, comment, socket));
     reset();
     setShowReplyBox(false);

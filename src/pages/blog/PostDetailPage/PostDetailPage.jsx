@@ -9,21 +9,22 @@ const PostDetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const { viewedPost: post, posts, getOnePostError, loading } = useSelector(
-    (state) => state.blog.posts
-  );
+  const {
+    viewedPost: post,
+    posts,
+    getOnePostError,
+    loading,
+  } = useSelector((state) => state.blog.posts);
 
   useEffect(() => {
     const postFromRedux = posts.find((post) => post._id === id);
 
     if (postFromRedux) {
-      console.log("Getting post from redux");
       dispatch({
         type: postTypes.GET_ONE_POST_SUCCESS,
         payload: { ...postFromRedux },
       });
     } else {
-      console.log("Getting post from api");
       dispatch(postActions.getOnePost(id));
     }
   }, [dispatch, id, posts]);

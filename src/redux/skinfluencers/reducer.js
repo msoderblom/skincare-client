@@ -15,15 +15,12 @@ const skinfluencersReducer = (state = initState, action) => {
         getSkinfluencersError: null,
       };
     case actionTypes.GET_SKINFLUENCERS_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         skinfluencers: action.payload,
       };
     case actionTypes.GET_SKINFLUENCERS_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,

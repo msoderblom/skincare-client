@@ -12,6 +12,7 @@ const initState = {
 
 const commentsReducer = (state = initState, action) => {
   switch (action.type) {
+    // CREATE COMMENT
     case actionTypes.CREATE_COMMENT_REQUEST:
       return {
         ...state,
@@ -19,15 +20,12 @@ const commentsReducer = (state = initState, action) => {
         createCommentError: null,
       };
     case actionTypes.CREATE_COMMENT_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         createdComment: action.payload,
       };
     case actionTypes.CREATE_COMMENT_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -42,14 +40,11 @@ const commentsReducer = (state = initState, action) => {
         replyToCommentError: null,
       };
     case actionTypes.REPLY_TO_COMMENT_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
       };
     case actionTypes.REPLY_TO_COMMENT_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -64,15 +59,12 @@ const commentsReducer = (state = initState, action) => {
         getCommentsError: null,
       };
     case actionTypes.GET_COMMENTS_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
         comments: action.payload,
       };
     case actionTypes.GET_COMMENTS_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -86,8 +78,6 @@ const commentsReducer = (state = initState, action) => {
         likeCommentError: null,
       };
     case actionTypes.LIKE_COMMENT_SUCCESS:
-      console.log("Payload in reducer", action.payload);
-
       return {
         ...state,
         loading: false,
@@ -98,7 +88,6 @@ const commentsReducer = (state = initState, action) => {
         ),
       };
     case actionTypes.LIKE_COMMENT_FAILURE:
-      console.log("error from reducer: ", action.error);
       return {
         ...state,
         loading: false,
@@ -107,19 +96,15 @@ const commentsReducer = (state = initState, action) => {
 
     // UPDATE
     case actionTypes.UPDATE_COMMENTS:
-      console.log("Payload inside update comments: ", action.payload);
       return {
         ...state,
         comments: [...state.comments, action.payload],
       };
     case actionTypes.UPDATE_PARENT_COMMENT:
-      console.log("Payload inside update parent: ", action.payload);
-
       const updatedComments = state.comments.map((comment) =>
         comment._id === action.payload._id ? action.payload : comment
       );
 
-      console.log("updated comments", updatedComments);
       return {
         ...state,
         comments: updatedComments,

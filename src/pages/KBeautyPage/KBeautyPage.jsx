@@ -27,7 +27,6 @@ const KBeautyPage = () => {
 
   useEffect(() => {
     if (brandslug) {
-      console.log(brandslug);
       if (brands) {
         const theBrand = brands.find(
           (branditem) => branditem.slug === brandslug

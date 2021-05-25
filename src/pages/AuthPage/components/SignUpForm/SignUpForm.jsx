@@ -17,8 +17,6 @@ const SignUpForm = () => {
   const { signUpError } = useSelector((state) => state.user);
 
   const handleSignUp = (data) => {
-    console.log("In handleSignUp");
-    console.log(data);
     if (data.password !== data.confirmPassword) {
       return setError("confirmPassword", {
         type: "manual",

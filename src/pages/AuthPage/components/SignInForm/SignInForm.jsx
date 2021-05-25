@@ -16,9 +16,6 @@ const SignInForm = () => {
   const { signInError } = useSelector((state) => state.user);
 
   const handleSignIn = (data) => {
-    console.log("In handleSignIn");
-    console.log(data);
-
     dispatch(userActions.signIn(data));
   };
 
