@@ -65,6 +65,13 @@ const ThreadDetailPage = () => {
         dispatch(threadActions.getOneThread(id));
       }
     }
+
+    return () => {
+      dispatch({
+        type: threadTypes.GET_ONE_THREAD_SUCCESS,
+        payload: null,
+      });
+    };
     // eslint-disable-next-line
   }, [id, threads]);
 
